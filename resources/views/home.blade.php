@@ -14,7 +14,10 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    @if(Auth::user()->checkIsAdmin())
+                        <a href="/subjects/create" class="btn btn-primary">Management</a>
+                    @endif
+
                 </div>
             </div>
         </div>

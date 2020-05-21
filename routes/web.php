@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('subjects', 'SubjectController');
 
+Route::middleware(['auth','IsStatus'])->group(function(){
+    Route::resource('subjects', 'SubjectController');
+});
 
 Route::get('/', function () {
     return view('welcome');
