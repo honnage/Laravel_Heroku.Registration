@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-@section('content')
+@section('body')
 @if($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -43,6 +43,8 @@
                                 <nav class="col-sm-2">ค่าสมัคร</nav>
                                 <input type="text" class="form-control col-sm-4" name="price" id="price" placeholder="เช่น: 50">
                                 <button type="submit" name="submit" class="btn btn-success col-sm-2">ยืนยัน</button>
+                                {{-- <input type="submit" value="submit"  class="btn btn-success col-sm-2 confirm"> --}}
+
                             </div>
 
                         </div>
@@ -50,8 +52,8 @@
                 </div>
             </div>
 
-            <div class="card my-5">
-                <div class="card-header" style="background-color: black; color: white"><strong> ข้อมูลวิชาที่จัดสอบ </strong></div>
+            <div class="card my-4">
+                <div class="card-header" style="background-color:#494B4B; color: white"><strong> ข้อมูลวิชาที่จัดสอบ </strong></div>
                     {{-- <div class="card-body"> --}}
                         <table class="table table-striped">
                             <thead>
@@ -75,33 +77,21 @@
                                     <td>{{number_format($data->price)}}</td>
                                     <td>    </td>
                                     <td>
-                                        {{-- <a action="/Admin/deleteSubject/{{$data->id}}" type="submit" value="ลบ"  class="btn btn-danger deleteform">
-                                        <input type="submit" value="ลบ" data-code="{{$data->code}}" class="btn btn-danger deleteform"> --}}
-                                        <form action="/Admin/deleteSubject/{{$data->id}}}" method="POST">
+                                        <center>
+                                        <form action="{{ route('subjects.destroy',$data->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
 
-                                            <input type="submit" value="ลบ"  class="btn btn-danger deleteform">
-                                            {{-- <a href="/Admin/deleteSubject/{{$data->id}}" class="btn btn-danger deleteform">ลบ</a> --}}
+                                            <a href="{{route('subjects.edit',$data->id)}}" class="btn btn-warning">แก้ไข</a>
+                                            <input type="submit" value="ลบ" data-name="{{$data->nameTH}}"  data-code="{{$data->code}}" class="btn btn-danger deleteform">
                                         </form>
-                                    </td>
-                                    <td>
-                                        {{-- <a action="/Admin/deleteSubject/{{$data->id}}" type="submit" value="ลบ"  class="btn btn-danger deleteform">
-                                        <input type="submit" value="ลบ" data-code="{{$data->code}}" class="btn btn-danger deleteform"> --}}
-                                        <form action="/Admin/deleteSubject/{{$data->id}}}" method="POST">
-                                            <form action="{{ route('subjects.destroy',$data->id)}}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-
-                                                <a href="{{route('subjects.edit',$data->id)}}" class="btn btn-warning">แก้ไข</a>
-                                                <input type="submit" value="ลบ"  class="btn btn-danger deleteform">
-                                                {{-- <a href="/Admin/deleteSubject/{{$data->id}}" class="btn btn-danger deleteform">ลบ</a> --}}
-                                        </form>
+                                        </center>
                                     </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
+                        {{-- {{$subject->links()}} --}}
                     {{-- </div> --}}
                 </div>
             </div>
