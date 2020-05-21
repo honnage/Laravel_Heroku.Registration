@@ -14,10 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 // Route::resource('subjects', 'SubjectController');
 
-
 Route::middleware(['auth','IsStatus'])->group(function(){
     Route::resource('subjects', 'SubjectController');
 });
+
+Route::middleware(['auth'])->group(function(){ //ต้องlogin ก่อน
+    Route::get('details/create','DetailController@create');
+    Route::post('details/create','DetailController@store');
+    Route::get('details/edit/{id}','DetailController@edit');
+    Route::post('details/update/{id}','DetailController@update');
+
+    // Route::get('admin/Problemtype','Admin\ProblemTypeController@index');
+    // Route::get('admin/Problemtype/delete/{id}','Admin\ProblemTypeController@delete');
+});
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,3 +36,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+

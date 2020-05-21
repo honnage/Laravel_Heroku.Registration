@@ -29,10 +29,14 @@
 
                     @if(Auth::user()->checkIsAdmin() || Auth::user()->id == "1")
                         <a href="/subjects/create" class="btn btn-primary">Management ใช้ลิงค์</a>
-                        <a href="{{ route('subjects.create')}}" class="btn btn-success">Management Route</a>
+                        {{-- <a href="{{ route('subjects.create')}}" class="btn btn-success">Management Route</a> --}}
                     @endif
-                    <a href="{{ route('subjects.create')}}" class="btn btn-warning">Management Route</a>
-                    <a href="{{ route('subjects.create')}}" class="btn btn-info">Management Route</a>
+
+                    @if( sizeof($details) == 1  )
+                        <a href="/details/edit/{{Auth::user()->id}}" class="btn btn-warning">แก้ไขข้อมูลส่วนตัว</a>
+                    @else
+                        <a href="/details/create" class="btn btn-primary">เพื่มข้อมูลส่วนตัว</a>
+                    @endif
                 </div>
             </div>
         </div>
