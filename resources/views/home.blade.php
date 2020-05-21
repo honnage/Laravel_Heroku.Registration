@@ -37,6 +37,12 @@
                     @else
                         <a href="/details/create" class="btn btn-primary">เพื่มข้อมูลส่วนตัว</a>
                     @endif
+
+                    @if( sizeof($details) == 1  )
+                        <a href="/register/create" class="btn btn-success">ลงทะเบียนวิชา</a>
+                    @else
+                        {{-- <a href="/details/create" class="btn btn-primary">เพื่มข้อมูลส่วนตัว</a> --}}
+                    @endif
                 </div>
             </div>
         </div>

@@ -24,6 +24,9 @@ Route::middleware(['auth'])->group(function(){ //ต้องlogin ก่อน
     Route::get('details/edit/{id}','DetailController@edit');
     Route::post('details/update/{id}','DetailController@update');
 
+    Route::get('register/create','RegisterController@create');
+    Route::get('register/addToCart/{id}','RegisterController@addSubjectToCart');
+
     // Route::get('admin/Problemtype','Admin\ProblemTypeController@index');
     // Route::get('admin/Problemtype/delete/{id}','Admin\ProblemTypeController@delete');
 });
