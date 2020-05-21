@@ -28,8 +28,9 @@
                     @endif
 
                     @if(Auth::user()->checkIsAdmin() || Auth::user()->id == "1")
-                    <a href="/subjects/create" class="btn btn-primary">Management</a>
-                @endif
+                        <a href="/subjects/create" class="btn btn-primary">Management ใช้ลิงค์</a>
+                        <a href="{{ route('subjects.create')}}" class="btn btn-primary">Management Route</a>
+                    @endif
                 </div>
             </div>
         </div>
