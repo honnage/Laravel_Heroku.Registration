@@ -28,9 +28,10 @@ Route::middleware(['auth'])->group(function(){ //ต้องlogin ก่อน
     // Route::get('admin/Problemtype/delete/{id}','Admin\ProblemTypeController@delete');
 });
 
+Route::get('public/subjects','PublicController@public');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
 });
 
 Auth::routes();

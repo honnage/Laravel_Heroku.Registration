@@ -14,12 +14,16 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="{{ asset('js/delete.js') }}"></script>
+    {{-- <script src="{{ asset('js/confirm.js') }}"></script> --}}
 </head>
 <body>
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 text-light bg-dark border-bottom shadow-sm">
-    <h5 class="my-0 mr-md-auto font-weight-normal">Admin Panel</h5>
+    <a class="navbar-brand" style="color: white"
+    {{-- href="{{ url('/') }}" --}}>
+        <h5 class="my-0 mr-md-auto font-weight-normal">Admin Panel</h5>
+    </a>
     <nav class="my-2 my-md-0 mr-md-3  bg-dark ">
-      <a class="p-2 text-light" href="/Products">Home</a>
+      <a class="p-2 text-light" href="/">หน้าหลัก</a>
       <a class="p-2 text-light" href="#">Dashboard</a>
       <a class="p-2 text-light" href="/home">Profile</a>
       <a class="p-2 text-light" href="#">Help</a>
@@ -30,11 +34,12 @@
       <div class="sidebar-heading">Overview</div>
       <div class="list-group list-group-flush">
         <a href="/admin/Dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="/admin/createProduct" class="list-group-item list-group-item-action bg-light">Product</a>
+        {{-- <a href="/admin/createProduct" class="list-group-item list-group-item-action bg-light">Product</a>
         <a href="/admin/createCategory" class="list-group-item list-group-item-action bg-light">Category</a>
-        <a href="/admin/orders" class="list-group-item list-group-item-action bg-light">Order</a>
-        <a href="/admin/payments" class="list-group-item list-group-item-action bg-light">Payments</a>
-        <a href="/admin/users" class="list-group-item list-group-item-action bg-light">User</a>
+        <a href="/admin/orders" class="list-group-item list-group-item-action bg-light">Order</a> --}}
+        <a href="/subjects/create" class="list-group-item list-group-item-action bg-light">วิชาจัดสอบ</a>
+        {{-- <a href="/admin/users" class="list-group-item list-group-item-action bg-light">กำหนดสิทธิ์</a> --}}
+        <a href="/UserDetails/" class="list-group-item list-group-item-action bg-light">ข้อมูลผู้ใช้</a>
     </div>
     </div>
     <div id="page-content-wrapper">
@@ -53,4 +58,4 @@
     </div>
   </div>
 </body>
-</html
+</html>
