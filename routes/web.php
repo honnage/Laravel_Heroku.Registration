@@ -12,12 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('subjects', 'SubjectController');
+// Route::resource('subjects', 'SubjectController');
 
 
-// Route::middleware(['auth','IsStatus'])->group(function(){
-//     Route::resource('subjects', 'SubjectController');
-// });
+Route::middleware(['auth','IsStatus'])->group(function(){
+    Route::resource('subjects', 'SubjectController');
+});
 
 Route::get('/', function () {
     return view('welcome');
