@@ -27,6 +27,8 @@ Route::middleware(['auth'])->group(function(){ //ต้องlogin ก่อน
     Route::get('register/create','RegisterController@create');
     Route::get('register/addToCart/{id}','RegisterController@addSubjectToCart');
     Route::get('registers/cart','RegisterController@showCart');
+    Route::get('registers/cart/deleteFromCart/{id}','RegisterController@deleteFromCart');
+
 
     // Route::get('admin/Problemtype','Admin\ProblemTypeController@index');
     // Route::get('admin/Problemtype/delete/{id}','Admin\ProblemTypeController@delete');

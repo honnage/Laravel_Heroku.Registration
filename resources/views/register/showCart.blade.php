@@ -56,11 +56,11 @@
                             <p class="cart_total_price"> {{ number_format($item['totalSingle'],2)  }} </p>
                         </td>
                         <td class="cart_delete">
-                            {{-- <a class="cart_quantity_delete"
+                            <a class="cart_quantity_delete"
                                 onclick="return confirm('คุณต้องการลบรายการสินค้าหรือไม่ ?')"
                                 href="/registers/cart/deleteFromCart/{{$item['data']['id']}}">
                                 <img src="{{ asset('images/interface.png') }}" width="30" height="30">
-                            </a> --}}
+                            </a>
                         </td>
                     </tr>
                     @endforeach

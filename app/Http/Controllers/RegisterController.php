@@ -38,13 +38,13 @@ class RegisterController extends Controller
         }
     }
 
-    // public function deleteFromCart(Request $request,$id){
-    //     $cart=$request->session()->get('cart');
-    //     if(array_key_exists($id, $cart->items)){
-    //         //ลบข้อมูล
-    //         unset($cart->items[$id]);
-    //         return redirect('/registers/cart');
-    //     }
-    // }
+    public function deleteFromCart(Request $request,$id){
+        $cart=$request->session()->get('cart');
+        if(array_key_exists($id, $cart->items)){
+            //ลบข้อมูล
+            unset($cart->items[$id]);
+            return redirect('/registers/cart');
+        }
+    }
 
 }
