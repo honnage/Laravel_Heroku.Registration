@@ -29,8 +29,10 @@
 
                     @if(Auth::user()->checkIsAdmin() || Auth::user()->id == "1")
                         <a href="/subjects/create" class="btn btn-primary">Management ใช้ลิงค์</a>
-                        <a href="{{ route('subjects.create')}}" class="btn btn-primary">Management Route</a>
+                        <a href="{{ route('subjects.create')}}" class="btn btn-success">Management Route</a>
                     @endif
+                    <a href="{{ route('subjects.create')}}" class="btn btn-warning">Management Route</a>
+                    <a href="{{ route('subjects.create')}}" class="btn btn-info">Management Route</a>
                 </div>
             </div>
         </div>
