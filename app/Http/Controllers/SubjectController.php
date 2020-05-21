@@ -14,7 +14,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $subject = SubjectModel::all();
+        $subject = SubjectModel::paginate(6);
         return view('subjects.create',compact('subject'));
     }
 
@@ -25,8 +25,7 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        $subject = SubjectModel::all();
-        return view('subjects.create',compact('subject'));
+        return view('subjects.create')->with('subject',SubjectModel::paginate(6));
     }
 
     /**
