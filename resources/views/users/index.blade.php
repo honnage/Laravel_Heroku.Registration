@@ -13,15 +13,16 @@
                                 <th scope="col"><center>รหัส</center></th>
                                 <th scope="col"><center>สถานะ</center></th>
                                 <th scope="col"><center>Email</center></th>
-                                <th scope="col"><center>ชื่อ</center></th>
-                                <th scope="col"><center>นามสกุล</center></th>
+                                {{-- <th scope="col"><center>ชื่อ</center></th>
+                                <th scope="col"><center>นามสกุล</center></th> --}}
                                 <th scope="col"><center>ตัวดำเนิดการ</center></th>
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach($usersData as $data)
+                                @foreach($users as $data)
                                 <tr>
-                                    <td>{{$data->userID}}</td>
+                                    {{-- <td>{{$data->userID}}</td> --}}
+                                    <td>{{$data->id}}</td>
                                     @if($data->UserStatus == "2")
                                         <td><center>Admin</center></td>
                                     @elseif($data->UserStatus == "1")
@@ -30,12 +31,12 @@
                                         <td><center>User</center></td>
                                     @endif
                                     <td>{{$data->email}}</td>
-                                    @if($data->Firstname_TH == "" && $data->Lastname_TH == "" )
+                                    {{-- @if($data->Firstname_TH == "" && $data->Lastname_TH == "" )
                                         <td colspan="2"><center><nav style="color: red">ผู้ใช้ยังไม่ได้ทำการเพื่มข้อมูล</nav></center></td>
                                     @else
                                         <td>{{$data->Firstname_TH}}</td>
                                         <td>{{$data->Lastname_TH}}</td>
-                                    @endif
+                                    @endif --}}
                                     <td>
                                         <center>
                                             <a href="/UserDetails/editStatus/{{$data->userID}} " class="btn btn-warning">แก้ไขสถานะ</a>

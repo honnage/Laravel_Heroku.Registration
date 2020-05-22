@@ -13,9 +13,9 @@ class UserDetailController extends Controller
 
         $usersData = DB::table('users')
         ->leftJoin('details','details.user_id','=','users.id')
-        ->select('*','users.id as userID','users.status as UserStatus')
+        // ->select('*','users.id as userID','users.status as UserStatus')
         // ->groupBy('SendDocuments.id')
-        ->orderBy('users.id', 'DESC')
+        // ->orderBy('users.id', 'DESC')
         ->get();
 
         return view('users.index',compact('users','usersData'));
