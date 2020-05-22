@@ -39,7 +39,7 @@
                                     @endif --}}
                                     <td>
                                         <center>
-                                            <a href="/UserDetails/editStatus/{{$data->userID}} " class="btn btn-warning">แก้ไขสถานะ</a>
+                                            <a href="/UserDetails/editStatus/{{$data->id}} " class="btn btn-warning">แก้ไขสถานะ</a>
                                             {{-- <a href="{{route('subjects.edit',$data->id)}}" class="btn btn-warning"></a> --}}
                                         </center>
                                     </td>
