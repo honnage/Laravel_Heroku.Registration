@@ -12,9 +12,12 @@ class UserDetailController extends Controller
         // $users = UserModel::all();
         // return view('users.index',compact('users'));
 
-        $users =  DB::table('users')->get();
+        $users =  DB::table('users')
+        ->leftJoin('details', 'details.user_id', '=', 'users.id')
+        ->select('*','users.id as userID','users.status as UserStatus')
+        ->get();
         return view('users.index',compact('users'));
-
+        return view('users.index',compact('users'));
     }
 
     public function editStatus($id){
