@@ -53,7 +53,8 @@ class SubjectController extends Controller
         $subject->nameEN = $request->nameEN;
         $subject->price = $request->price;
 
-        $subject->save();
+        // $subject->save();
+        dd($request);
         return redirect('/subjects');
     }
 
