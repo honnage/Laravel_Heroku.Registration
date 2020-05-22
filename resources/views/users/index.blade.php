@@ -23,9 +23,9 @@
                                 <tr>
                                     {{-- <td>{{$data->userID}}</td> --}}
                                     <td>{{$data->id}}</td>
-                                    @if($data->UserStatus == "2")
+                                    @if($data->status == "2")
                                         <td><center>Admin</center></td>
-                                    @elseif($data->UserStatus == "1")
+                                    @elseif($data->status == "1")
                                         <td><center>Moderator</center></td>
                                     @else
                                         <td><center>User</center></td>
