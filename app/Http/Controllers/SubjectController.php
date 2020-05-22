@@ -15,7 +15,7 @@ class SubjectController extends Controller
     public function index()
     {
         // $subject = SubjectModel::orderBy('code', 'asc')->paginate(6);
-        $subject = SubjectModel::orderBy('code', 'asc')->get();
+        $subject = SubjectModel::get();
 
         return view('subjects.create',compact('subject'));
     }
@@ -28,7 +28,7 @@ class SubjectController extends Controller
     public function create()
     {
         // return view('subjects.create')->with('subject',SubjectModel::orderBy('code', 'asc')->paginate(6));
-        return view('subjects.create')->with('subject',SubjectModel::orderBy('code', 'asc')->get());
+        return view('subjects.create')->with('subject',SubjectModel::get());
 
     }
 
@@ -77,7 +77,7 @@ class SubjectController extends Controller
      */
     public function edit($id)
     {
-        $data = SubjectModel::orderBy('code', 'asc')->get();
+        $data = SubjectModel::get();
         $subject = SubjectModel::find($id);
         return view('subjects.edit', compact('subject','data'));
     }
