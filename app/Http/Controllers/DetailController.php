@@ -63,7 +63,8 @@ class DetailController extends Controller
         $details->address = $request->address;
 
         $details->save();
-        return redirect('/home');
+        dd($request);
+        // return redirect('/home');
     }
 
     /**
