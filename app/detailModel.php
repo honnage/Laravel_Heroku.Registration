@@ -4,7 +4,7 @@ namespace App\DetailModel;
 
 use Illuminate\Database\Eloquent\Model;
 
-class detailModel extends Model
+class DetailModel extends Model
 {
     protected $table="details";
     protected $fillable = [
