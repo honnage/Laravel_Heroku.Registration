@@ -93,7 +93,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{-- {{$subject->links()}} --}}
+                        {{$subject->links()}}
                     {{-- </div> --}}
                 </div>
             </div>
