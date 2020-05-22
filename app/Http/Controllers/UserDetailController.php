@@ -9,8 +9,12 @@ use App\UserModel;
 class UserDetailController extends Controller
 {
     public function index(){
-        $users = UserModel::all();
+        // $users = UserModel::all();
+        // return view('users.index',compact('users'));
+
+        $users =  DB::table('users')->get();
         return view('users.index',compact('users'));
+
     }
 
     public function editStatus($id){
