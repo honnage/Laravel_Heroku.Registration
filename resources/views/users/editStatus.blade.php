@@ -63,8 +63,12 @@
                                         @endif
                                     </select>
                                 </div>
-                                <button class="btn btn-secondary col-sm-1" type="reset">ยกเลิก</button>
-                                <button type="submit" name="submit" class="btn btn-success col-sm-2">อัพเดท</button>
+                                @if($users->status =="2")
+                                    <button class="btn btn-secondary col-sm-1" type="reset">ยกเลิก</button>
+                                    <button type="submit" name="submit" class="btn btn-success col-sm-2">อัพเดท</button>
+                                @endif
+                                    {{-- <button class="btn btn-secondary col-sm-1" type="reset">ยกเลิก</button>
+                                    <button type="submit" name="submit" class="btn btn-success col-sm-2">อัพเดท</button> --}}
                             </div>
                         </div>
                     </form>

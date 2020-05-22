@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @section('body')
 <div class="container">
     <div class="data justify-content-center">
@@ -22,9 +21,11 @@
                                 @foreach($users as $data)
                                 <tr>
                                     <td>{{$data->id}}</td>
-                                    @if($data->status == "2")
+                                    @if($data->id == 1)
                                         <td><center>Admin</center></td>
-                                    @elseif($data->status == "1")
+                                    @elseif($data->status == 2)
+                                        <td><center>Admin</center></td>
+                                    @elseif($data->status == 1)
                                         <td><center>Moderator</center></td>
                                     @else
                                         <td><center>User</center></td>

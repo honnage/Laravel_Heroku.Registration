@@ -83,7 +83,9 @@
                                             @method('DELETE')
 
                                             <a href="{{route('subjects.edit',$data->id)}}" class="btn btn-warning">แก้ไข</a>
-                                            <input type="submit" value="ลบ" data-name="{{$data->nameTH}}"  data-code="{{$data->code}}" class="btn btn-danger deleteform">
+                                            @if(Auth::user()->status == 2 || Auth::user()->id == 1)
+                                                <input type="submit" value="ลบ" data-name="{{$data->nameTH}}"  data-code="{{$data->code}}" class="btn btn-danger deleteform">
+                                            @endif
                                         </form>
                                         </center>
                                     </td>

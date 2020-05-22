@@ -81,6 +81,7 @@ class SubjectController extends Controller
     {
         $data = SubjectModel::get();
         $subject = SubjectModel::find($id);
+
         return view('subjects.edit', compact('subject','data'));
     }
 
