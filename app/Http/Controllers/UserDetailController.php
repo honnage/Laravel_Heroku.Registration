@@ -10,15 +10,7 @@ class UserDetailController extends Controller
 {
     public function index(){
         $users = UserModel::all();
-
-        $usersData = DB::table('users')
-        ->leftJoin('details','details.user_id','=','users.id')
-        // ->select('*','users.id as userID','users.status as UserStatus')
-        // ->groupBy('SendDocuments.id')
-        // ->orderBy('users.id', 'DESC')
-        ->get();
-
-        return view('users.index',compact('users','usersData'));
+        return view('users.index',compact('users'));
     }
 
     public function editStatus($id){
