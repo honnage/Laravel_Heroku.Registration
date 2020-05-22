@@ -22,13 +22,16 @@ class UserDetailController extends Controller
     }
 
     public function editStatus($id){
-        $usersData = DB::table('users')
-        ->fullOuterJoin('details','details.user_id','=','users.id')
-        ->select('*','users.id as userID','users.status as UserStatus')
+        $usersData = DB::table('details')
+        // ->join('users','users.id','=','details.user_id')
+        ->select('*',
+        // 'users.id as userID','users.status as UserStatus'
+        )
         // ->groupBy('users.id')
         // ->orderBy('users.id', 'DESC')
-        ->where('users.id')
+        ->where('details.user_id')
         ->get();
-        return view('users.editStatus', compact('usersData'));
+        $userdetail = UserDetailModel::where('details.user_id')->get();
+        return view('users.editStatus', compact('usersData','userdetail'));
     }
 }
