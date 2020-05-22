@@ -67,9 +67,9 @@
                     </form>
                 </div>
             </div>
-
+            @if($details->user_id == $users->id )
             <div class="card my-4">
-                <div class="card-header" style="background-color:#494B4B; color: white"><strong> ข้อมูลวิชาที่จัดสอบ </strong></div>
+                <div class="card-header" style="background-color:#494B4B; color: white"><strong> ข้อมูลของผู้ใช้ </strong></div>
                 <div class="form-inline">
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <nav class="col-sm-2">เลขบัตรประชาชน</nav>
@@ -129,7 +129,7 @@
                             </select>
                         </div> --}}
                         <input type="text" class="form-control col-sm-4" name="status" id="status"
-                        @if(  $details->status == "0")
+                        @if(  c)
                             value="กำลังศึกษาหรือเทียบเท่ามัธยมศึกษาปีที่ 6"
                         @else
                             value="จบการศึกษามัธยมศึกษาปีที่ 6"
@@ -148,6 +148,9 @@
                     </div>
                 </div>
             </div>
+            @else
+                ไม่มีข้อมูล
+            @endif
         </div>
     </div>
 </div>

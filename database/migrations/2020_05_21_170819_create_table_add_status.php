@@ -15,6 +15,7 @@ class CreateTableAddStatus extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->integer('status')->after('username')->default(0);
+            $table->integer('detail')->after('status')->default(0);
         });
     }
 

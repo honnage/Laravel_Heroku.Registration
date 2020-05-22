@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\DetailModel;
+use Illuminate\Support\Facades\DB;
 
 class DetailController extends Controller
 {
@@ -61,8 +62,14 @@ class DetailController extends Controller
         $details->phone = $request->phone;
         $details->status = $request->status;
         $details->address = $request->address;
-
         $details->save();
+
+        DB::table('users')
+        ->where('users.id','=',$details->user_id )
+        ->update([
+        'detail' => 1,
+        ]);
+
         return redirect('/home');
     }
 
@@ -126,6 +133,13 @@ class DetailController extends Controller
         // $details->save();
 
         DetailModel::find($id)->update($request->all()); //บันทึกแบบทั้งหมด
+
+        DB::table('users')
+        ->where('users.id','=',$id )
+        ->update([
+        'detail' => 1,
+        ]);
+
         return redirect('/home');
     }
 
