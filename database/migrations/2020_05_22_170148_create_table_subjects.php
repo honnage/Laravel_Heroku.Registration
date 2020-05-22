@@ -13,7 +13,7 @@ class CreateTableSubjects extends Migration
      */
     public function up()
     {
-        Schema::create('Subjects', function (Blueprint $table) {
+        Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->string('code');
             $table->string('nameTH');
@@ -30,6 +30,6 @@ class CreateTableSubjects extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Subjects');
+        Schema::dropIfExists('subjects');
     }
 }

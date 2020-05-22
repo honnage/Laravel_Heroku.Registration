@@ -27,11 +27,9 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        $subject = SubjectModel::get();
+        // return view('subjects.create')->with('subject',SubjectModel::orderBy('code', 'asc')->paginate(6));
+        return view('subjects.create')->with('subject',SubjectModel::get());
 
-        return view('subjects.create',compact('subject'));
-    // return view('subjects.create')->with('subject',SubjectModel::orderBy('code', 'asc')->paginate(6));
-        // return view('subjects.create')->with('subject',SubjectModel::all());
     }
 
     /**
@@ -55,8 +53,8 @@ class SubjectController extends Controller
         $subject->nameEN = $request->nameEN;
         $subject->price = $request->price;
 
-        $subject->save();
-        // dd($request);
+        // $subject->save();
+        dd($request);
         return redirect('/subjects');
     }
 
@@ -93,7 +91,21 @@ class SubjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'code'=>'required',
+            'nameTH'=>'required',
+            'nameEN'=>'required',
+            'price'=>'required',
+        ]);
+
+        // $subject = SubjectModel::find($id);
+        // $subject->code = $request->code;
+        // $subject->nameTH = $request->nameTH;
+        // $subject->nameEN = $request->nameEN;
+        // $subject->price = $request->price;
+        // $subject->save();
+        SubjectModel::find($id)->update($request->all()); //บันทึกแบบทั้งหมด
+        return redirect('/subjects');
     }
 
     /**
@@ -104,7 +116,7 @@ class SubjectController extends Controller
      */
     public function destroy($id)
     {
-        SubjectModel::find($id)->delete();
-        return redirect('/subjects');
+         SubjectModel::find($id)->delete();
+         return redirect('/subjects');
     }
 }
