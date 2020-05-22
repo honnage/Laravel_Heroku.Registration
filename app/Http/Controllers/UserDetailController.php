@@ -19,8 +19,8 @@ class UserDetailController extends Controller
         // ->get();
         // return view('users.index',compact('users'));
     }
-    public function editStatus($id)
-    {
+
+    public function editStatus($id){
         $users = UserModel::find($id);
         $details = DetailModel::find($id);
 
@@ -29,8 +29,18 @@ class UserDetailController extends Controller
         // ->get();
 
         return view('users.editStatus',compact('details','users'));
-        // return view('users.editStatus',compact('details'));
+    }
 
+    public function update(Request $request, $id){
+        $request->validate([
+            'status'=>'required',
+        ]);
+
+        $users = UserModel::find($id);
+        $users->status = $request->status;
+        $users->save();
+        // SubjectModel::find($id)->update($request->all()); //บันทึกแบบทั้งหมด
+        return redirect('/UserDetails');
     }
 
 

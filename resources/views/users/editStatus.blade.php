@@ -24,7 +24,7 @@
                         </div>
                     @endif
 
-                    <form action="/subjects" method="post" >
+                    <form action="/UserDetails/update/{{$users->id}}" method="post" >
                         {{csrf_field()}}
                         <div class="form-inline">
                             <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
@@ -38,8 +38,11 @@
                             </div>
 
                             <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
+                                <nav class="col-sm-2">ID</nav>
+                                <input type="text" class="form-control col-sm-2" name="id" id="id" value="{{$users->id}}" readonly>
+
                                 <nav class="col-sm-2">สถานะ</nav>
-                                <div class = "col-sm-7">
+                                <div class = "col-sm-3">
                                     <select class="form-control " name="status">
                                         @if( $users->id == "1")
                                             <option value="{{$users->status}}">ปัจจุบัน: Admin</option>
@@ -67,7 +70,7 @@
                     </form>
                 </div>
             </div>
-            @if($details->user_id == $users->id )
+            @if($users->detail == $users->id )
             <div class="card my-4">
                 <div class="card-header" style="background-color:#494B4B; color: white"><strong> ข้อมูลของผู้ใช้ </strong></div>
                 <div class="form-inline">
@@ -129,7 +132,7 @@
                             </select>
                         </div> --}}
                         <input type="text" class="form-control col-sm-4" name="status" id="status"
-                        @if(  c)
+                        @if( $details->status == "0")
                             value="กำลังศึกษาหรือเทียบเท่ามัธยมศึกษาปีที่ 6"
                         @else
                             value="จบการศึกษามัธยมศึกษาปีที่ 6"
@@ -149,7 +152,15 @@
                 </div>
             </div>
             @else
-                ไม่มีข้อมูล
+            <div class="card my-4">
+                <div class="card-header" style="background-color:#494B4B; color: white"><strong> ข้อมูลของผู้ใช้ </strong></div>
+                <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
+
+                    <center><br><h1> ข้อมูลผู้ใช้ ID นี้ ยังไม่ทำรายการเพื่มข้อมูลส่วนตัว</h1>
+                     <a class="btn btn-lg btn-primary my-3" href="/UserDetails" >ย้อนกลับ</a><br></center>
+
+                 </div>
+            </div>
             @endif
         </div>
     </div>

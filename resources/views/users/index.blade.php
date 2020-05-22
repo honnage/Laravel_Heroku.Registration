@@ -31,10 +31,15 @@
                                     @endif
                                     <td>{{$data->username}}</td>
                                     <td>{{$data->email}}</td>
-                                    <td><center>{{$data->detail}}</center></td>
+                                    @if($data->detail == 0)
+                                        <td><center><strong style="color: red">ยังไม่ได้เพื่มข้อมูลส่วนตัว</strong></center></td>
+                                    @else
+                                        <td><center><strong style="color: rgb(13, 212, 13)">เพื่มข้อมูลส่วนตัวแล้ว</strong></center></td>
+                                    @endif
+                                    {{-- <td><center>{{$data->detail}}</center></td> --}}
                                     <td>
                                         <center>
-                                            <a href="/UserDetails/editStatus/{{$data->id}} " class="btn btn-warning">แก้ไขสถานะ</a>
+                                            <a href="/UserDetails/editStatus/{{$data->id}} " class="btn btn-success">แสดงข้อมูล</a>
                                             {{-- <a href="{{route('subjects.edit',$data->id)}}" class="btn btn-warning"></a> --}}
                                         </center>
                                     </td>
