@@ -93,7 +93,21 @@ class SubjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'code'=>'required',
+            'nameTH'=>'required',
+            'nameEN'=>'required',
+            'price'=>'required',
+        ]);
+
+        // $subject = SubjectModel::find($id);
+        // $subject->code = $request->code;
+        // $subject->nameTH = $request->nameTH;
+        // $subject->nameEN = $request->nameEN;
+        // $subject->price = $request->price;
+        // $subject->save();
+        SubjectModel::find($id)->update($request->all()); //บันทึกแบบทั้งหมด
+        return redirect('/subjects');
     }
 
     /**
