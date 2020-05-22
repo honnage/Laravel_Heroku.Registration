@@ -31,6 +31,7 @@ Route::middleware(['auth'])->group(function(){ //ต้องlogin ก่อน
 
     Route::get('UserDetails','UserDetailController@index');
     Route::get('UserDetails/editStatus/{id}','UserDetailController@editStatus');
+
     // Route::get('admin/Problemtype','Admin\ProblemTypeController@index');
     // Route::get('admin/Problemtype/delete/{id}','Admin\ProblemTypeController@delete');
 });

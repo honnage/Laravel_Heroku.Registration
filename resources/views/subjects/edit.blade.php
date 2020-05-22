@@ -42,7 +42,8 @@
                                 <input type="text" class="form-control col-sm-2" name="code" id="code" value="{{$subject->code}}">
 
                                 <nav class="col-sm-2">ค่าสมัคร</nav>
-                                <input type="text" class="form-control col-sm-4" name="price" id="price" value="{{number_format($subject->price)}}">
+                                <input type="text" class="form-control col-sm-3" name="price" id="price" value="{{number_format($subject->price)}}">
+                                <button class="btn btn-secondary col-sm-1" type="reset">ยกเลิก</button>
                                 <button type="submit" name="submit" class="btn btn-success col-sm-2">อัพเดท</button>
                             </div>
 

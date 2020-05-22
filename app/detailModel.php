@@ -20,4 +20,9 @@ class DetailModel extends Model
         'status',
         'address',
     ];
+    public function users(){
+        return $this->belongsTo(UserModel::class);
+        // return $this->hasMany('App\UserModel','user_id');
+
+    }
 }
