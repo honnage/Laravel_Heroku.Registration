@@ -6,7 +6,18 @@
     <div class="data justify-content-center">
         <div class="col-md-12">
             <div class="card my-1">
-                <div class="card-header" style="background-color: #494B4B; color: white"><strong> ข้อมูลวิชาที่จัดสอบ </strong></div>
+                <div class="card-header" style="background-color: #494B4B; color: white">
+                    <div class="form-inline">
+
+                        <ul class="navbar-nav mr-auto">
+                            <strong> ข้อมูลวิชาที่จัดสอบ </strong>
+                        </ul>
+                        <form class="form-inline mt-2 mt-md-0">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
                     {{-- <div class="card-body"> --}}
                         <table class="table table-striped">
                             <thead>
