@@ -43,7 +43,9 @@ class HomeController extends Controller
         if($cart){ //มีข้อมูล
             return view('home',['cartItems'=>$cart],compact('subject','user','details'));
         } else {
-            return view('home',compact('user','details'));        }
+            return view('home',compact('user','details'));
+        }
+        // return view('home',compact('user','details'));
 
     }
 

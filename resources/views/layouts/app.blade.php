@@ -53,12 +53,13 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
+                            <li class="nav-item" >
                                 <a href="/registers/cart">
                                     <i class="nav-link ">
                                     @if(isset($cartItems))
                                         <span class="badge" style="background-color: red; color: white">{{ $cartItems->totalQuantity }}</span>
                                     @endif
+                                    {{-- <img src="{{ asset('images/shopping-cart.png') }}" width="25" height="25"> --}}
                                     ตะกร้าสินค้า </i>
                                 </a>
                             </li>

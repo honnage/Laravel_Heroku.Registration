@@ -20,7 +20,8 @@ class RegisterController extends Controller
         if($cart){ //มีข้อมูล
             return view('register.create',['cartItems'=>$cart],compact('subject'));
         } else {
-            return redirect('/home');
+            // return redirect('/home');
+            return view('register.create',compact('subject'));
         }
 
         // return view('register.create');
@@ -93,7 +94,10 @@ class RegisterController extends Controller
     public function checkout($id){
         $users = UserModel::find($id);
         $details = DetailModel::find($id);
+        // if($users->id ==  $details->user_id){
         return view('register.checkout',compact('users','details'));
+        // }
+
     }
 
 
