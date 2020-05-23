@@ -42,6 +42,7 @@
         <a href="/UserDetails/" class="list-group-item list-group-item-action bg-light">ข้อมูลผู้ใช้</a>
     </div>
     </div>
+
     <div id="page-content-wrapper">
       <div class="container-fluid">
         @if(Session()->has('success'))
@@ -49,6 +50,7 @@
                 {{Session()->get('success')}}
             </div>
         @endif
+
         @if(Session()->has('warning'))
         <div class="alert alert-danger" role="alert">
             {{Session()->get('warning')}}
@@ -56,6 +58,7 @@
          @endif
         @yield('body')
     </div>
+
   </div>
 </body>
 </html>

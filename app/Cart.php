@@ -20,12 +20,13 @@
 
         public function addItem($id, $subjects){
             $price = (int)($subjects->price);
-            if(array_key_exists($id, $this->items)){ //เซ็ต ไอที ตรงกันหรือเปล่า
+            if(array_key_exists($id, $this->items)){ //เซ็ต ไอดี ตรงกันหรือเปล่า
                 // $subjectToAdd = $this->items[$id];
                 // $subjectToAdd['quantity']++; //เพื่มจำนวนในรายการสินค้า ที่ซ้ำกัน ในรายการนั้นๆ
                 // $subjectToAdd['totalSingle'] = $subjectToAdd['quantity'] * $price; //คำนวนราคา จากจำนวนสินค้า * ราคา
             } else {
                 $subjectToAdd = ['quantity'=>1, 'totalSingle'=>$price, 'data'=>$subjects];
+                //เพื่มขึ้นมา
                 $this->items[$id] = $subjectToAdd;
                 $this->totalQuantity++;
                 $this->totalPrice = $this->totalPrice + $price;

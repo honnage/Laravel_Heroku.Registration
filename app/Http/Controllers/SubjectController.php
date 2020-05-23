@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\SubjectModel;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class SubjectController extends Controller
 {
@@ -14,9 +15,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        // $subject = SubjectModel::orderBy('code', 'asc')->paginate(6);
         $subject = SubjectModel::orderBy('code', 'asc')->paginate(6);
-
         return view('subjects.create',compact('subject'));
     }
 
@@ -28,10 +27,8 @@ class SubjectController extends Controller
     public function create()
     {
         $subject = SubjectModel::get();
-
         // return view('subjects.create',compact('subject'));
         return view('subjects.create')->with('subject',SubjectModel::orderBy('code', 'asc')->paginate(6));
-        // return view('subjects.create')->with('subject',SubjectModel::all());
     }
 
     /**
@@ -57,6 +54,7 @@ class SubjectController extends Controller
 
         $subject->save();
         // dd($request);
+        Session()->flash("success","บันทึกข้อมูลเรียบร้อยแล้ว!");
         return redirect('/subjects');
     }
 
@@ -108,6 +106,7 @@ class SubjectController extends Controller
         // $subject->price = $request->price;
         // $subject->save();
         SubjectModel::find($id)->update($request->all()); //บันทึกแบบทั้งหมด
+        Session()->flash("success","อัพเดทข้อมูลเรียบร้อยแล้ว!");
         return redirect('/subjects');
     }
 
