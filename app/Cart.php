@@ -21,6 +21,7 @@
         public function addItem($id, $subjects){
             $price = (int)($subjects->price);
             if(array_key_exists($id, $this->items)){ //เซ็ต ไอดี ตรงกันหรือเปล่า
+                //แบบเก่า
                 // $subjectToAdd = $this->items[$id];
                 // $subjectToAdd['quantity']++; //เพื่มจำนวนในรายการสินค้า ที่ซ้ำกัน ในรายการนั้นๆ
                 // $subjectToAdd['totalSingle'] = $subjectToAdd['quantity'] * $price; //คำนวนราคา จากจำนวนสินค้า * ราคา
@@ -31,12 +32,29 @@
                 $this->totalQuantity++;
                 $this->totalPrice = $this->totalPrice + $price;
             }
+            //แบบเก่า
             // $this->items[$id] = $subjectToAdd;
             // $this->totalQuantity++;
             // $this->totalPrice = $this->totalPrice + $price;
+        }
+
+        public function updatePriceQuantity(){
+            $totalPrice = 0;
+            $totalQuantity = 0;
+
+            foreach ( $this->items as $item){
+                $totalQuantity = $totalQuantity + $item['quantity']; //จำนวนสินค้า
+                $totalPrice = $totalPrice + $item['totalSingle']; //ราคารวมสินค้า แต่ละรายการ
+            }
+            $this->totalQuantity = $totalQuantity;
+            $this->totalPrice = $totalPrice;
+
         }
 
 
     }
 
 ?>
+
+
+

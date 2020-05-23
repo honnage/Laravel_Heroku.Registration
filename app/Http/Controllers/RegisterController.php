@@ -27,12 +27,13 @@ class RegisterController extends Controller
         $request->session()->put('cart',$cart);
         // dump($cart);
 
-        return redirect('home');
+        // return redirect('home');
+        return redirect('registers/cart');
     }
 
     public function showCart(){ //แสดงผลข้อมูล
-        $cart=Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
-        if($cart){
+        $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
+        if($cart){ //มีข้อมูล
             return view('register.showCart',['cartItems'=>$cart]);
         } else {
             return redirect('/home');
@@ -40,12 +41,17 @@ class RegisterController extends Controller
     }
 
     public function deleteFromCart(Request $request,$id){
-        $cart=$request->session()->get('cart');
+        $cart = $request->session()->get('cart');
         if(array_key_exists($id, $cart->items)){
-            //ลบข้อมูล
-            unset($cart->items[$id]);
-            return redirect('/registers/cart');
+            unset($cart->items[$id]); //ลบข้อมูลสินค้าในตะกร้า ตามไอที ที่ตรงกัน
         }
+        // สินค้าคงเหลือ
+        $afterCart = $request->session()->get('cart');
+        $updateCart = new Cart($afterCart);
+        $updateCart->updatePriceQuantity();
+        $request->session()->put('cart',$updateCart);
+        return redirect('/registers/cart');
     }
+
 
 }
