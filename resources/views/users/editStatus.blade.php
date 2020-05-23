@@ -46,9 +46,10 @@
                                 <div class = "col-sm-3">
                                     <select class="form-control " name="status">
                                         @if( $users->id == "1")
-                                            <option value="{{$users->status}}">ปัจจุบัน: Admin</option>
+                                            <option value="{{$users->status}}">ID 1 สถานะเริ่มต้น 0 จะเป็น Admin  </option>
                                             <option value="1">แก้ไขเป็น: Moderator</option>
                                             <option value="0">แก้ไขเป็น: User</option>
+                                            <option value="2">แก้ไขเป็น: Admin</option>
                                         @elseif( $users->status == "0")
                                             <option value="{{$users->status}}">ปัจจุบัน: User</option>
                                             <option value="1">แก้ไขเป็น: Moderator</option>
