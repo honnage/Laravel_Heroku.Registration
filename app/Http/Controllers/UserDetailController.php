@@ -10,14 +10,13 @@ use App\DetailModel;
 class UserDetailController extends Controller
 {
     public function index(){
-        $users = UserModel::orderBy('detail', 'asc');
-        return view('users.index',compact('users'));
-
-        // $users =  DB::table('users')
-        // ->leftJoin('details', 'details.user_id', '=', 'users.id')
-        // ->select('*','users.id as userID','users.status as UserStatus')
-        // ->get();
+        // $users = UserModel::all();
         // return view('users.index',compact('users'));
+
+        $users =  DB::table('users')
+        ->orderBy('status','DESC')
+        ->get();
+        return view('users.index',compact('users'));
     }
 
     public function editStatus($id){
