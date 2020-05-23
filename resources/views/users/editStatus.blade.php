@@ -89,7 +89,7 @@
                     </form>
                 </div>
             </div>
-            @if(uth::user()->detail == 1)
+            @if(Auth::user()->detail == 1)
             <div class="card my-4">
                 <div class="card-header" style="background-color:#494B4B; color: white"><strong> ข้อมูลของผู้ใช้ </strong></div>
                 <div class="form-inline">
