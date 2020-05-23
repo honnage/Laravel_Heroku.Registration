@@ -7,8 +7,12 @@ use App\SubjectModel;
 
 class PublicController extends Controller
 {
-    public function public(){
+    public function Public(){
         $subject = SubjectModel::get();
         return view('subjects.public',compact('subject'));
     }
+
+
+
 }
+

@@ -39,7 +39,9 @@ Route::middleware(['auth'])->group(function(){ //ต้องlogin ก่อน
 
 });
 
-Route::get('public/subjects','PublicController@public');
+Route::get('public/subjects','PublicController@Public');
+Route::get('public/search','PublicController@searchPublic');
+
 
 Route::get('/', function () {
     return view('main');

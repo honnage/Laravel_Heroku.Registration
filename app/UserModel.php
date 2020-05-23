@@ -15,11 +15,4 @@ class UserModel extends Model
         'detail',
 
     ];
-
-    public function detail(){
-        return $this->hasMany('App\DetailModel','user_id');
-        // return $this->hasOne('App\DetailModel','user_id');
-        // return $this->belongsTo(DetailModel::class);
-    }
-
 }

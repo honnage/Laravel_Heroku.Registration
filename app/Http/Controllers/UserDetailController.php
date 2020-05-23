@@ -27,8 +27,11 @@ class UserDetailController extends Controller
         // $details = DB::table('details')
         // ->where('details.user_id' ,'=',$id)
         // ->get();
+        if($users->detail > 0 ){
+            return view('users.editStatus',compact('details','users'));
+        }else{
+            return view('users.editStatusDetailNull',compact('users'));        }
 
-        return view('users.editStatus',compact('details','users'));
     }
 
     public function update(Request $request, $id){
