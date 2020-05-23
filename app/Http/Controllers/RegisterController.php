@@ -26,6 +26,7 @@ class RegisterController extends Controller
         //update ตะกร้า
         $request->session()->put('cart',$cart);
         // dump($cart);
+
         return redirect('home');
     }
 

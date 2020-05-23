@@ -15,7 +15,7 @@ class CreateTableDetails extends Migration
     {
         Schema::create('details', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->integer('user_id');
             $table->string('code_id');
             $table->string('Firstname_TH');
             $table->string('Lastname_TH');
