@@ -17,6 +17,13 @@
               <strong> <a href="/home">Home</a> &nbsp;&nbsp;&nbsp; ตะกร้ารายการสินค้า</strong>
             </ol>
         </div>
+
+        @if(Session()->has('warning'))
+            <div class="alert alert-danger" role="alert">
+                {{Session()->get('warning')}}
+            </div>
+        @endif
+
         <div class="card">
         <div class="table-responsive cart_info">
             <table class="table table-condensed" >
@@ -46,7 +53,7 @@
                         <td class="cart_quantity">
                             <center>
                             <div class="cart_quantity_button">
-                                <strong><a href="/products/cart/decrementCart/{{$item['data']['id']}}"><img src="{{ asset('images/minus.png') }}" width="25" height="25"></a></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <strong><a href="/registers/decrementCart/{{$item['data']['id']}}"><img src="{{ asset('images/minus.png') }}" width="25" height="25"></a></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 {{-- <input class="cart_quantity_input" type="text" name="quantity" value="{{ $item['quantity'] }}" autocomplete="off" size="2">&nbsp; --}}
                                 {{ $item['quantity'] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <strong><a  href="/registers/incrementCart/{{$item['data']['id']}}"><img src="{{ asset('images/plus.png') }}" width="25" height="25"></a></strong>&nbsp;
@@ -95,8 +102,8 @@
                 </tbody>
             </table>
             <div class="total_area">
-                <a class="btn btn-success update" href="/test/{{Auth::user()->id}}">ยืนยัน</a>
-                <a class="btn btn-primary check_out" href="/products/checkout">Check Out</a>
+                <a class="btn btn-success update" href="/registers/checkout/{{Auth::user()->id}}">ยืนยัน</a>
+                <a class="btn btn-primary check_out" href="/test/edit/{{Auth::user()->id}}">Check Out</a>
             </div><br>
         </div>
     </div>

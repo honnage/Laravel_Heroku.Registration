@@ -16,7 +16,14 @@ class RegisterController extends Controller
 {
     public function create(){
         $subject = SubjectModel::get();
-        return view('register.create',compact('subject'));
+        $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
+        if($cart){ //มีข้อมูล
+            return view('register.create',['cartItems'=>$cart],compact('subject'));
+        } else {
+            return redirect('/home');
+        }
+
+        // return view('register.create');
     }
 
     public function addSubjectToCart(Request $request, $id){
@@ -33,7 +40,7 @@ class RegisterController extends Controller
     }
 
     //แสดงผลข้อมูล
-    public function showCart($id){
+    public function showCart(){
         $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
         if($cart){ //มีข้อมูล
             return view('register.showCart',['cartItems'=>$cart]);
@@ -81,6 +88,12 @@ class RegisterController extends Controller
             session()->flash("warning","ต้องมีจำนวนรายการอย่าง 1 รายการ");
         }
         return redirect('registers/cart');
+    }
+
+    public function checkout($id){
+        $users = UserModel::find($id);
+        $details = DetailModel::find($id);
+        return view('register.checkout',compact('users','details'));
     }
 
 

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\DetailModel;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use DB;
+use App\SubjectModel;
 
 class HomeController extends Controller
 {
@@ -32,6 +34,18 @@ class HomeController extends Controller
         ->get();
 
         $user = DB::table('users')->get();
-        return view('home',compact('user','details'));
+
+
+        // return view('home',compact('user','details'));
+
+        $subject = SubjectModel::get();
+        $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
+        if($cart){ //มีข้อมูล
+            return view('home',['cartItems'=>$cart],compact('subject','user','details'));
+        } else {
+            return view('home',compact('user','details'));        }
+
     }
+
+
 }
