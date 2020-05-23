@@ -42,6 +42,7 @@
                     @else
                         {{-- <a href="/details/create" class="btn btn-primary">เพื่มข้อมูลส่วนตัว</a> --}}
                     @endif
+
             </div>
         </div>
     </div>

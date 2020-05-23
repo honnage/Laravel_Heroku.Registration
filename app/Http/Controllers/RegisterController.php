@@ -7,6 +7,9 @@ use App\SubjectModel;
 use App\Cart;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use App\UserModel;
+use App\DetailModel;
+
 // use Symfony\Component\HttpFoundation\Session\Session;
 
 class RegisterController extends Controller
@@ -30,7 +33,7 @@ class RegisterController extends Controller
     }
 
     //แสดงผลข้อมูล
-    public function showCart(){
+    public function showCart($id){
         $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
         if($cart){ //มีข้อมูล
             return view('register.showCart',['cartItems'=>$cart]);

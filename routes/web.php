@@ -31,10 +31,13 @@ Route::middleware(['auth'])->group(function(){ //ต้องlogin ก่อน
 
     Route::get('register/create','RegisterController@create');
     Route::get('register/addToCart/{id}','RegisterController@addSubjectToCart');
-    Route::get('registers/cart','RegisterController@showCart');
+    Route::get('registers/cart/{id}','RegisterController@showCart');
     Route::get('registers/cart/deleteFromCart/{id}','RegisterController@deleteFromCart');
     Route::get('registers/incrementCart/{id}','RegisterController@incrementCart');
     Route::get('registers/decrementCart/{id}','RegisterController@decrementCart');
+    Route::get('registers/checkout','RegisterController@checkout');
+
+    Route::get('test/{$id}','testController@create');
 
 
 });

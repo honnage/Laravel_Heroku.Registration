@@ -66,7 +66,7 @@
                                 @endif
                             @else
                                 <li class="nav-item">
-                                    <a href="/registers/cart" ><i class="nav-link ">ตะกร้าสินค้า</i></a>
+                                    <a href="/registers/cart/{{ Auth::user()->id}}" ><i class="nav-link" style="">ตะกร้าสินค้า</i></a>
                                 </li>
 
                                 <li class="nav-item">
