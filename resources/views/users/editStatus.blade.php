@@ -42,11 +42,11 @@
                                 <input type="text" class="form-control col-sm-2" name="id" id="id" value="{{$users->id}}" readonly>
 
                                 @if(Auth::user()->status == 2 || Auth::user()->id == 1)
-                                <nav class="col-sm-2">สถานะ</nav>
-                                <div class = "col-sm-3">
+                                <nav class="col-sm-1">สถานะ</nav>
+                                <div class = "col-sm-4">
                                     <select class="form-control " name="status">
                                         @if( $users->id == "1")
-                                            <option value="{{$users->status}}">ID 1 สถานะเริ่มต้น 0 จะเป็น Admin  </option>
+                                            <option value="{{$users->status}}">ID 1 สถานะเป็น Admin เสมอ</option>
                                             <option value="1">แก้ไขเป็น: Moderator</option>
                                             <option value="0">แก้ไขเป็น: User</option>
                                             <option value="2">แก้ไขเป็น: Admin</option>
