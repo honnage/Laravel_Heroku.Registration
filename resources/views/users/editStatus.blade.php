@@ -41,6 +41,7 @@
                                 <nav class="col-sm-2">ID</nav>
                                 <input type="text" class="form-control col-sm-2" name="id" id="id" value="{{$users->id}}" readonly>
 
+                                @if(Auth::user()->status == 2 || Auth::user()->id == 1)
                                 <nav class="col-sm-2">สถานะ</nav>
                                 <div class = "col-sm-3">
                                     <select class="form-control " name="status">
@@ -63,7 +64,21 @@
                                         @endif
                                     </select>
                                 </div>
-                                @if($users->status =="2")
+                                @else
+                                    <nav class="col-sm-2">สถานะ</nav>
+                                    <input type="text" class="form-control col-sm-6" name="id" id="id"
+                                    @if($users->id == "1")
+                                        value="Admin"
+                                    @elseif( $users->status == 2)
+                                        value="Admin"
+                                    @elseif( $users->status == 1)
+                                        value="Moderator"
+                                    @else
+                                        value="User"
+                                    @endif readonly>
+                                @endif
+
+                                @if(Auth::user()->status == 2 || Auth::user()->id == 1)
                                     <button class="btn btn-secondary col-sm-1" type="reset">ยกเลิก</button>
                                     <button type="submit" name="submit" class="btn btn-success col-sm-2">อัพเดท</button>
                                 @endif
@@ -160,8 +175,8 @@
                 <div class="card-header" style="background-color:#494B4B; color: white"><strong> ข้อมูลของผู้ใช้ </strong></div>
                 <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
 
-                    <center><br><h1> ข้อมูลผู้ใช้ ID นี้ ยังไม่ทำรายการเพื่มข้อมูลส่วนตัว</h1>
-                     <a class="btn btn-lg btn-primary my-3" href="/UserDetails" >ย้อนกลับ</a><br></center>
+                    <center><br><h1> ข้อมูลผู้ใช้ ID นี้ ยังไม่ทำรายการเพื่มข้อมูลส่วนตัว</h1></center>
+                     <a class="btn btn-lg btn-primary my-3" href="/UserDetails" >ย้อนกลับ</a><br>
 
                  </div>
             </div>

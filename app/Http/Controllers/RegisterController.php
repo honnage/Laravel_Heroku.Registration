@@ -26,12 +26,11 @@ class RegisterController extends Controller
         //update ตะกร้า
         $request->session()->put('cart',$cart);
         // dump($cart);
-
-        // return redirect('home');
         return redirect('registers/cart');
     }
 
-    public function showCart(){ //แสดงผลข้อมูล
+    //แสดงผลข้อมูล
+    public function showCart(){
         $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
         if($cart){ //มีข้อมูล
             return view('register.showCart',['cartItems'=>$cart]);
@@ -40,6 +39,7 @@ class RegisterController extends Controller
         }
     }
 
+    //ลบรายการ
     public function deleteFromCart(Request $request,$id){
         $cart = $request->session()->get('cart');
         if(array_key_exists($id, $cart->items)){
@@ -51,6 +51,33 @@ class RegisterController extends Controller
         $updateCart->updatePriceQuantity();
         $request->session()->put('cart',$updateCart);
         return redirect('/registers/cart');
+    }
+
+    //กดปุ่มบวก แล้วเพื่มจำนวนรายการ
+    public function incrementCart(Request $request, $id){
+        $subject=SubjectModel::find($id);
+        $prevCart =$request->session()->get('cart');
+        $cart = new Cart($prevCart);
+        $cart->addItem($id ,$subject);
+        $request->session()->put('cart',$cart);
+        return redirect('registers/cart');
+    }
+
+   //กดปุ่มลบ แล้วเพื่มจำนวนรายการ
+    public function decrementCart(Request $request, $id){
+        $subject=SubjectModel::find($id);
+        $prevCart =$request->session()->get('cart');
+        $cart = new Cart($prevCart);
+        //เข้าถึง quantity รายการที่เลือก
+        if($cart->items[$id]['quantity'] > 1){
+            $cart->items[$id]['quantity'] = $cart->items[$id]['quantity'] - 1; //ลบจำนวน รายการสินค้าใหม่
+            $cart->items[$id]['totalSingle'] = $cart->items[$id]['quantity'] * $subject['price']; //คำนวนราคา รายการสินค่าใหม่
+            $cart->updatePriceQuantity();
+            $request->session()->put('cart',$cart);
+        }else{
+            session()->flash("warning","ต้องมีจำนวนรายการอย่าง 1 รายการ");
+        }
+        return redirect('registers/cart');
     }
 
 

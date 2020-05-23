@@ -17,6 +17,13 @@
               <strong> <a href="/home">Home</a> &nbsp;&nbsp;&nbsp; ตะกร้ารายการสินค้า</strong>
             </ol>
         </div>
+
+        @if(Session()->has('warning'))
+            <div class="alert alert-danger" role="alert">
+                {{Session()->get('warning')}}
+            </div>
+         @endif
+
         <div class="card">
         <div class="table-responsive cart_info">
             <table class="table table-condensed" >
@@ -34,7 +41,7 @@
                 @foreach($cartItems->items as $item)
                     <tr>
                         <td class="cart_product">
-                            <p>{{Str::limit( $item['data']['code'],50 )}}</p>
+                            <strong>{{Str::limit( $item['data']['code'],50 )}}</strong>
                         </td>
                         <td class="cart_description">
                             <strong><a href="/register/create">{{ $item['data']['nameTH'] }}</a></strong>
@@ -46,9 +53,10 @@
                         <td class="cart_quantity">
                             <center>
                             <div class="cart_quantity_button">
-                                <strong><a class="cart_quantity_down" href="/products/cart/decrementCart/{{$item['data']['id']}}"> - </a></strong>&nbsp;
-                                <input class="cart_quantity_input" type="text" name="quantity" value="{{ $item['quantity'] }}" autocomplete="off" size="2">&nbsp;
-                                <strong><a class="cart_quantity_up" href="/products/cart/incrementCart/{{$item['data']['id']}}"> + </a></strong>&nbsp;
+                                <strong><a href="/registers/decrementCart/{{$item['data']['id']}}"><img src="{{ asset('images/minus.png') }}" width="25" height="25"></a></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {{-- <input class="cart_quantity_input" type="text" name="quantity" value="{{ $item['quantity'] }}" autocomplete="off" size="2">&nbsp; --}}
+                                {{ $item['quantity'] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <strong><a  href="/registers/incrementCart/{{$item['data']['id']}}"><img src="{{ asset('images/plus.png') }}" width="25" height="25"></a></strong>&nbsp;
                             </div>
                             </center>
                         </td>

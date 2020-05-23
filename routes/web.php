@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth','IsStatus'])->group(function(){
     Route::resource('subjects', 'SubjectController');
+
+    Route::get('UserDetails','UserDetailController@index');
+    Route::get('UserDetails/editStatus/{id}','UserDetailController@editStatus');
+    Route::post('UserDetails/update/{id}','UserDetailController@update');
+
 });
 
 Route::middleware(['auth'])->group(function(){ //ต้องlogin ก่อน
@@ -28,13 +33,10 @@ Route::middleware(['auth'])->group(function(){ //ต้องlogin ก่อน
     Route::get('register/addToCart/{id}','RegisterController@addSubjectToCart');
     Route::get('registers/cart','RegisterController@showCart');
     Route::get('registers/cart/deleteFromCart/{id}','RegisterController@deleteFromCart');
+    Route::get('registers/incrementCart/{id}','RegisterController@incrementCart');
+    Route::get('registers/decrementCart/{id}','RegisterController@decrementCart');
 
-    Route::get('UserDetails','UserDetailController@index');
-    Route::get('UserDetails/editStatus/{id}','UserDetailController@editStatus');
-    Route::post('UserDetails/update/{id}','UserDetailController@update');
 
-    // Route::get('admin/Problemtype','Admin\ProblemTypeController@index');
-    // Route::get('admin/Problemtype/delete/{id}','Admin\ProblemTypeController@delete');
 });
 
 Route::get('public/subjects','PublicController@public');
