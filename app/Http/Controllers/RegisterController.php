@@ -95,8 +95,14 @@ class RegisterController extends Controller
         $users = UserModel::find($id);
         $details = DetailModel::find($id);
         // if($users->id ==  $details->user_id){
-        return view('register.checkout',compact('users','details'));
+        // return view('register.checkout',compact('users','details'));
         // }
+        $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
+        if($cart){ //มีข้อมูล
+            return view('register.checkout',['cartItems'=>$cart],compact('users','details'));
+        } else {
+            // return redirect('/home');
+        }
 
     }
 
