@@ -10,7 +10,7 @@ use App\DetailModel;
 class UserDetailController extends Controller
 {
     public function index(){
-        $users = UserModel::all();
+        $users = UserModel::orderBy('detail', 'asc');
         return view('users.index',compact('users'));
 
         // $users =  DB::table('users')
