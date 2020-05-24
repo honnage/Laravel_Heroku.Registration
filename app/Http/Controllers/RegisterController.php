@@ -114,6 +114,7 @@ class RegisterController extends Controller
         // dd($users->email, $details->Firstname_TH);
 
         if($cart){
+            //เพื่มแบบ model
             $date=date("Y-m-d H:i:s");
             $order = new OrderModel();
             $order->date = $date;
@@ -129,6 +130,7 @@ class RegisterController extends Controller
             $order->user_id = Auth::user()->id;
             $order->save();
 
+            //เพื่มแบบ DB
             // DB::table('Dormitory')
             // ->insert([
             // 'date' => $date,
@@ -145,7 +147,6 @@ class RegisterController extends Controller
             // ]);
 
             $order_id = DB::getPDO()->lastInsertId();
-
             foreach($cart->items as $item){
                 $item_id = $item['data']['id'];
                 $item_code = $item['data']['code'];
@@ -161,23 +162,37 @@ class RegisterController extends Controller
                 // dd($item->item_name);
                 $create_orderitem = DB::table('orderitems')->insert($newOrderItem);
             }
+
+            $order_id = DB::getPDO()->lastInsertId();
+            foreach($cart->items as $item){
+                $user_id = Auth::user()->id;
+                $code = $item['data']['code'];
+                $nameTH = $item['data']['nameTH'];
+                $nameEN = $item['data']['nameEN'];
+                $status = 0;
+                $newRegisters = array(
+                    "user_id" => $user_id,
+                    "code" => $code,
+                    "nameTH" => $nameTH,
+                    "nameEN" => $nameEN ,
+                    "status" => $status ,
+                );
+                // dd($item->item_name);
+                $create_orderitem = DB::table('registers')->insert($newRegisters);
+            }
             session::forget("cart");
-            $payment_info = $order;
-            $payment_info["order_id"]=$order_id;
-            $request->session()->put("payment_info");
-            return redirect('/registers/showPayment');
-        }else{
-            return redirect('home');
+
         }
+        return redirect('home');
     }
 
-    public function showPayment(){
-        $payment_info=Session()->get('payment_info');
-        if($payment_info['status']=='Not Paid'){
-            return view("payment.paymentPage",["payment_info"=>$payment_info]);
-        } else {
-            return redirect('/home');
-        }
-    }
+    // public function showPayment(){
+    //     $payment_info=Session()->get('payment_info');
+    //     if($payment_info['status']=='Not Paid'){
+    //         return view("payment.paymentPage",["payment_info"=>$payment_info]);
+    //     } else {
+    //         return redirect('/home');
+    //     }
+    // }
 
 }

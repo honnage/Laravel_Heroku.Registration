@@ -8,10 +8,10 @@ class RegisterModel extends Model
 {
     protected $table="registers";
     protected $fillable = [
-        'Registers_code',
         'user_id',
-        'price',
+        'code',
+        'nameTH',
+        'nameEN',
         'status',
-        'date',
     ];
 }

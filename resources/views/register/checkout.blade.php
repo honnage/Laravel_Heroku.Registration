@@ -118,11 +118,11 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                        <a href="/registers/cart"  class="btn btn-primary col-sm-2">ย้อนกลับ</a>
-                    </div>
 
-                    <button type="submit" name="submit" class="btn btn-success col-sm-2">ยืนยัน</button>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
+                        <button href="/registers/cart"  class="btn btn-primary col-sm-1">ย้อนกลับ</button>
+                        <button type="submit" name="submit" class="btn btn-success col-sm-2 ">ลงทะเบียน</button>
+                    </div>
 
                 </form>
             </div>

@@ -58,18 +58,3 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-// PAT1	ความถนัดทางคณิตศาสตร์	Mathematical aptitude	140.00
-
-// PAT2	ความถนัดทางวิทยาศาสตร์	Science aptitude	140.00
-
-// PAT4	ความถนัดทางสถาปัตยกรรมศาสตร์	Architecture aptitude	140.00
-
-// PAT3	ความถนัดทางวิศวกรรมศาสตร์	Engineering aptitude	140.00
-
-// PAT5	ความถนัดทางวิชาชีพครู	Professional aptitude for teachers	140.00
-
-// PAT6	ความถนัดทางศิลปกรรมศาสตร์	Artistic aptitude	140.00
-
-// PAT7.1	ความถนัดทางภาษาฝรั่งเศส	French aptitude	140.00
-
-// GAT	ความถนัดทั่วไป	General aptitude	140.00
