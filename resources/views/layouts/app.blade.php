@@ -67,9 +67,6 @@
                             <li class="nav-item">
                                 <a href="/order/show/{{Auth::user()->id}}">
                                     <i class="nav-link ">
-                                    @if(sizeof($orders) == 1)
-                                        <span class="badge" style="background-color: red; color: white">!</span>
-                                    @endif
                                     สถานะการชำระเงิน </i>
                                 </a>
                             </li>
