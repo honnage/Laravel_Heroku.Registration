@@ -115,7 +115,7 @@ class RegisterController extends Controller
 
         if($cart){
             //เพื่มแบบ model
-            // $date=date("Y-m-d H:i:s");
+            $date=date("Y-m-d H:i:s");
             // $order = new OrderModel();
             // $order->date = $date;
             // $order->price = $cart->totalPrice;
