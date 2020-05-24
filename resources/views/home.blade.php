@@ -42,7 +42,7 @@
                         <a href="/register/create" class="btn btn-success">ลงทะเบียนวิชา</a>
                     @endif
 
-                    @if( sizeof($orders) == 1  )
+                    @if( sizeof($orders) != 0  )
                         <a href="/order/show/{{Auth::user()->id}}" class="btn btn-outline-light" style="background-color: #F39C12">รายการลงทะเบียน</a>
                     @endif
 

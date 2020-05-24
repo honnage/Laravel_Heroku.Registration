@@ -103,7 +103,7 @@
             </table>
             <div class="total_area">
                 <a class="btn btn-success update" href="/registers/checkout/{{Auth::user()->id}}">ยืนยัน</a>
-                <a class="btn btn-primary check_out" href="/test/edit/{{Auth::user()->id}}">Check Out</a>
+                <a class="btn btn-primary check_out" href=" ">Check Out</a>
             </div><br>
         </div>
     </div>
