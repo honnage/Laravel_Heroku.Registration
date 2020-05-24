@@ -116,35 +116,37 @@ class RegisterController extends Controller
         if($cart){
             //เพื่มแบบ model
             $date=date("Y-m-d H:i:s");
-            $order = new OrderModel();
-            $order->date = $date;
-            $order->price = $cart->totalPrice;
-            $order->status = "Not Paid";
-            $order->Firstname_TH = $details->Firstname_TH;
-            $order->Lastname_TH = $details->Lastname_TH;
-            $order->Firstname_EN = $details->Firstname_EN;
-            $order->Lastname_EN = $details->Lastname_EN;
-            $order->address = $details->address;
-            $order->phone = $details->phone;
-            $order->email = $users->email;
-            $order->user_id = Auth::user()->id;
-            $order->save();
+            // $order = new OrderModel();
+            // $order->date = $date;
+            // $order->price = $cart->totalPrice;
+            // $order->status = "Not Paid";
+            // $order->Firstname_TH = $details->Firstname_TH;
+            // $order->Lastname_TH = $details->Lastname_TH;
+            // $order->Firstname_EN = $details->Firstname_EN;
+            // $order->Lastname_EN = $details->Lastname_EN;
+            // $order->address = $details->address;
+            // $order->phone = $details->phone;
+            // $order->email = $users->email;
+            // $order->user_id = Auth::user()->id;
+            // $order->save();
 
             //เพื่มแบบ DB
-            // DB::table('orders')
-            // ->insert([
-            // 'date' => $date,
-            // 'price' => $cart->totalPrice,
-            // 'status' => "Not Paid",
-            // 'Firstname_TH' => $details->Firstname_TH,
-            // 'Lastname_TH' => $details->Lastname_TH,
-            // 'Firstname_EN' => $details->Firstname_EN,
-            // 'Lastname_EN' => $details->Lastname_EN,
-            // 'address' => $details->address,
-            // 'phone' => $details->phone,
-            // 'email' => $users->email,
-            // 'user_id' => Auth::user()->id,
-            // ]);
+            DB::table('orders')
+            ->insert([
+            'date' => $date,
+            'price' => $cart->totalPrice,
+            'status' => "Not Paid",
+            'Firstname_TH' => $details->Firstname_TH,
+            'Lastname_TH' => $details->Lastname_TH,
+            'Firstname_EN' => $details->Firstname_EN,
+            'Lastname_EN' => $details->Lastname_EN,
+            'address' => $details->address,
+            'phone' => $details->phone,
+            'email' => $users->email,
+            'user_id' => Auth::user()->id,
+            'created_at' =>$date,
+            'updated_at' =>$date,
+            ]);
 
             $order_id = DB::getPDO()->lastInsertId();
             foreach($cart->items as $item){
