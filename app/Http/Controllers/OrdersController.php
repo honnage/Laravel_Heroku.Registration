@@ -7,10 +7,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use DB;
 use App\SubjectModel;
+use App\DetailModel;
 
 class OrdersController extends Controller
 {
     public function show($id){
+        $details = DB::table('details')
+        ->where('details.user_id','=',$id)
+        ->get();
+
         $orders = DB::table('orders')
         ->where('orders.user_id','=',$id)
         ->get();
@@ -18,9 +23,11 @@ class OrdersController extends Controller
         $subject = SubjectModel::get();
         $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
         if($cart){ //มีข้อมูล
-            return view('home',['cartItems'=>$cart],compact('orders'));
-        } else {
-            return view('orders.show',compact('orders'));
+            return redirect('home',['cartItems'=>$cart],compact('orders','details'));
+        } elseif($orders){
+            return view('orders.show',compact('orders','details'));
+        }else{
+            return redirect('home');
         }
     }
 

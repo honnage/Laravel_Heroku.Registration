@@ -28,9 +28,6 @@
                                         <center>
                                             <a href="/order/details/{{$data->order_id}} " class="btn btn-primary">รายละเอียด</a>
                                             <a href=" " class="btn btn-success">แจ้งชำระเงิน</a>
-                                            {{-- @if(Auth::user()->status == 2 || Auth::user()->id == 1)
-                                                <input type="submit" value="ลบ" data-name="{{$data->nameTH}}"  data-code="{{$data->code}}" class="btn btn-danger deleteform">
-                                            @endif --}}
                                         </center>
                                     </td>
                                 </tr>

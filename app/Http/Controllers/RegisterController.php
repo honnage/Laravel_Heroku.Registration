@@ -17,27 +17,19 @@ use App\OrderModel;
 class RegisterController extends Controller
 {
     public function create(){
-        $id = Auth::user()->id;
-        $orders = DB::table('orders')
-        ->where('orders.user_id','=',$id)
-        ->get();
-
         $subject = SubjectModel::get();
         $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
         if($cart){ //มีข้อมูล
-            return view('register.create',['cartItems'=>$cart],compact('subject','orders'));
+            return view('register.create',['cartItems'=>$cart],compact('subject'));
         } else {
             // return redirect('/home');
-            return view('register.create',compact('subject','orders'));
+            return view('register.create',compact('subject'));
         }
 
         // return view('register.create');
     }
 
     public function addSubjectToCart(Request $request, $id){
-        $orders = DB::table('orders')
-        ->where('orders.user_id','=',$id)
-        ->get();
         // $request->session()->forget('cart');
         // dd(SubjectModel::find($id));
         $subject=SubjectModel::find($id);
@@ -47,7 +39,7 @@ class RegisterController extends Controller
         //update ตะกร้า
         $request->session()->put('cart',$cart);
         // dump($cart);
-        return redirect('registers/cart',compact('orders'));
+        return redirect('registers/cart');
     }
 
     //แสดงผลข้อมูล
