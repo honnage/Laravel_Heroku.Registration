@@ -96,9 +96,7 @@ class RegisterController extends Controller
     public function checkout($id){
         $users = UserModel::find($id);
         $details = DetailModel::find($id);
-        // if($users->id ==  $details->user_id){
-        // return view('register.checkout',compact('users','details'));
-        // }
+
         $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
         if($cart){ //มีข้อมูล
             return view('register.checkout',['cartItems'=>$cart],compact('users','details'));
@@ -112,7 +110,6 @@ class RegisterController extends Controller
         $users = UserModel::find($id);
         $details = DetailModel::find($id);
         // dd($users->email, $details->Firstname_TH);
-
         if($cart){
             //เพื่มแบบ model
             $date=date("Y-m-d H:i:s");
@@ -144,8 +141,8 @@ class RegisterController extends Controller
             'phone' => $details->phone,
             'email' => $users->email,
             'user_id' => Auth::user()->id,
-            'created_at' =>$date,
-            'updated_at' =>$date,
+            // 'created_at' =>$date,
+            // 'updated_at' =>$date,
             ]);
 
             $order_id = DB::getPDO()->lastInsertId();

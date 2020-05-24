@@ -102,8 +102,8 @@
                 </tbody>
             </table>
             <div class="total_area">
+                <a class="btn btn-primary check_out" href="/home">ย้อนกลับ</a>
                 <a class="btn btn-success update" href="/registers/checkout/{{Auth::user()->id}}">ยืนยัน</a>
-                <a class="btn btn-primary check_out" href=" ">Check Out</a>
             </div><br>
         </div>
     </div>
