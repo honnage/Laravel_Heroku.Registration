@@ -15,6 +15,7 @@ class UserDetailController extends Controller
 
         $users =  DB::table('users')
         ->orderBy('status','DESC')
+        ->orderBy('id')
         ->get();
         return view('users.index',compact('users'));
     }

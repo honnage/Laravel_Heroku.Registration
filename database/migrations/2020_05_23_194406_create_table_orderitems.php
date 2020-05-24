@@ -14,9 +14,10 @@ class CreateTableOrderitems extends Migration
     public function up()
     {
         Schema::create('orderitems', function (Blueprint $table) {
-            $table->integer('item_id');
+            $table->bigIncrements('PK_id');
             $table->integer('order_id'); //รหัสใบสั่งซื้อ
-            $table->text('item_name'); //ชื่อสินค้าในใบสั่งซื้อ
+            $table->integer('item_id');
+            $table->text('item_code'); //ชื่อสินค้าในใบสั่งซื้อ
             $table->decimal('item_price',10,2);
             $table->integer('item_amoun');
             $table->timestamps();

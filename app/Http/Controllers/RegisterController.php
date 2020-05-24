@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\SubjectModel;
-use App\Cart;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\SubjectModel;
 use App\UserModel;
 use App\DetailModel;
+use App\Cart;
+use App\OrderModel;
 
 // use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -103,8 +105,79 @@ class RegisterController extends Controller
         } else {
             // return redirect('/home');
         }
-
     }
 
+    public function createOrder(Request $request, $id){
+        $cart = Session::get('cart');
+        $users = UserModel::find($id);
+        $details = DetailModel::find($id);
+        // dd($users->email, $details->Firstname_TH);
+
+        if($cart){
+            $date=date("Y-m-d H:i:s");
+            $order = new OrderModel();
+            $order->date = $date;
+            $order->price = $cart->totalPrice;
+            $order->status = "Not Paid";
+            $order->Firstname_TH = $details->Firstname_TH;
+            $order->Lastname_TH = $details->Lastname_TH;
+            $order->Firstname_EN = $details->Firstname_EN;
+            $order->Lastname_EN = $details->Lastname_EN;
+            $order->address = $details->address;
+            $order->phone = $details->phone;
+            $order->email = $users->email;
+            $order->user_id = Auth::user()->id;
+            $order->save();
+
+            // DB::table('Dormitory')
+            // ->insert([
+            // 'date' => $date,
+            // 'price' => $cart->totalPrice,
+            // 'status' => "Not Paid",
+            // 'Firstname_TH' => $details->Firstname_TH,
+            // 'Lastname_TH' => $details->Lastname_TH,
+            // 'Firstname_EN' => $details->Firstname_EN,
+            // 'Lastname_EN' => $details->Lastname_EN,
+            // 'address' => $details->address,
+            // 'phone' => $details->phone,
+            // 'email' => $users->email,
+            // 'user_id' => Auth::user()->id,
+            // ]);
+
+            $order_id = DB::getPDO()->lastInsertId();
+
+            foreach($cart->items as $item){
+                $item_id = $item['data']['id'];
+                $item_code = $item['data']['code'];
+                $item_price = $item['data']['price'];
+                $item_amoun = $item['quantity'];
+                $newOrderItem = array(
+                    "item_id" => $item_id,
+                    "order_id" => $order_id,
+                    "item_code" => $item_code,
+                    "item_price" => $item_price ,
+                    "item_amoun" => $item_amoun ,
+                );
+                // dd($item->item_name);
+                $create_orderitem = DB::table('orderitems')->insert($newOrderItem);
+            }
+            session::forget("cart");
+            $payment_info = $order;
+            $payment_info["order_id"]=$order_id;
+            $request->session()->put("payment_info");
+            return redirect('/registers/showPayment');
+        }else{
+            return redirect('home');
+        }
+    }
+
+    public function showPayment(){
+        $payment_info=Session()->get('payment_info');
+        if($payment_info['status']=='Not Paid'){
+            return view("payment.paymentPage",["payment_info"=>$payment_info]);
+        } else {
+            return redirect('/home');
+        }
+    }
 
 }

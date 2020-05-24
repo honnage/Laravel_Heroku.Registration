@@ -15,11 +15,9 @@ class CreateTableOrders extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('order_id');
-            $table->date('date');//วันชำระเงิน
+            $table->dateTime('date');//วันชำระเงิน
             $table->decimal('price',10,2); //ยอดเงิน
             $table->text('status'); //สถานะการสั่งซื้อ
-            $table->date('del_date');//วันส่ง
-
             $table->string('Firstname_TH');
             $table->string('Lastname_TH');
             $table->string('Firstname_EN');

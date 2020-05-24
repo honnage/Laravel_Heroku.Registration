@@ -15,7 +15,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header" style="background-color:#494B4B; color: white"><strong> ข้อมูลทำรายการ </strong></div>
-                <form action="/details/create" method="post" >
+                <form action="/registers/createOrder/{{$users->id}}" method="post" >
                     {{csrf_field()}}
                     <div class="form-inline">
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
@@ -79,6 +79,7 @@
                                     <td class="cart_description">
                                         <strong><a href="/register/create">{{ $item['data']['nameTH'] }}</a></strong>
                                         <p>{{Str::limit( $item['data']['nameEN'],50 )}}</p>
+                                        {{-- <p>{{Str::limit( $item['data']['name'],50 )}}</p> --}}
                                     </td>
                                     <td class="cart_price">
                                         <p>{{ number_format($item['data']['price'],2) }}</p>
@@ -120,6 +121,8 @@
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                         <a href="/registers/cart"  class="btn btn-primary col-sm-2">ย้อนกลับ</a>
                     </div>
+
+                    <button type="submit" name="submit" class="btn btn-success col-sm-2">ยืนยัน</button>
 
                 </form>
             </div>

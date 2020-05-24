@@ -36,9 +36,11 @@ Route::middleware(['auth'])->group(function(){ //ต้องlogin ก่อน
     Route::get('registers/incrementCart/{id}','RegisterController@incrementCart');
     Route::get('registers/decrementCart/{id}','RegisterController@decrementCart');
     Route::get('registers/checkout/{id}','RegisterController@checkout');
+    Route::post('registers/createOrder/{id}','RegisterController@createOrder');
+    Route::get('registers/showPayment','RegisterController@showPayment');
 
-    Route::get('test/create/{$id}','testController@create');
-    Route::get('test/edit/{$id}','testController@edir');
+
+
 
 
 });
