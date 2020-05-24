@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use DB;
 use App\SubjectModel;
+use App\OrderModel;
 
 class HomeController extends Controller
 {
@@ -34,18 +35,20 @@ class HomeController extends Controller
         ->get();
 
         $user = DB::table('users')->get();
-
-
-        // return view('home',compact('user','details'));
+        $orders = DB::table('orders')
+        ->where('orders.user_id','=',$id)
+        ->get();
+        $registers = DB::table('registers')
+        ->where('registers.user_id','=',$id)
+        ->get();
 
         $subject = SubjectModel::get();
         $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
         if($cart){ //มีข้อมูล
-            return view('home',['cartItems'=>$cart],compact('subject','user','details'));
+            return view('home',['cartItems'=>$cart],compact('subject','user','details','orders','registers'));
         } else {
-            return view('home',compact('user','details'));
+            return view('home',compact('user','details','orders','registers'));
         }
-        // return view('home',compact('user','details'));
 
     }
 

@@ -39,6 +39,10 @@ Route::middleware(['auth'])->group(function(){ //ต้องlogin ก่อน
     Route::post('registers/createOrder/{id}','RegisterController@createOrder');
     Route::get('registers/showPayment','RegisterController@showPayment');
 
+    Route::get('order/show/{id}','OrdersController@show');
+    Route::get('order/details/{id}','OrdersController@details');
+
+
 
 
 

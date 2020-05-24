@@ -40,8 +40,10 @@
 
                     @if( sizeof($details) == 1  )
                         <a href="/register/create" class="btn btn-success">ลงทะเบียนวิชา</a>
-                    @else
-                        {{-- <a href="/details/create" class="btn btn-primary">เพื่มข้อมูลส่วนตัว</a> --}}
+                    @endif
+
+                    @if( sizeof($orders) == 1  )
+                        <a href=" " class="btn btn-outline-light" style="background-color: #F39C12">วิชาที่ลงทะเบียน</a>
                     @endif
 
             </div>
