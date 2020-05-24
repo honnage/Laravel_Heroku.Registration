@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableRegisters extends Migration
+class CreateTableRegisterDetails extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTableRegisters extends Migration
      */
     public function up()
     {
-        Schema::create('registers', function (Blueprint $table) {
+        Schema::create('register_details', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->string('code');
@@ -31,6 +31,6 @@ class CreateTableRegisters extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registers');
+        Schema::dropIfExists('register_details');
     }
 }
