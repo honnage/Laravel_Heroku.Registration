@@ -38,16 +38,16 @@ class HomeController extends Controller
         $orders = DB::table('orders')
         ->where('orders.user_id','=',$id)
         ->get();
-        $registers = DB::table('registers')
-        ->where('registers.user_id','=',$id)
+        $register_details = DB::table('register_details')
+        ->where('register_details.user_id','=',$id)
         ->get();
 
         $subject = SubjectModel::get();
         $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
         if($cart){ //มีข้อมูล
-            return view('home',['cartItems'=>$cart],compact('subject','user','details','orders','registers'));
+            return view('home',['cartItems'=>$cart],compact('subject','user','details','orders','register_details'));
         } else {
-            return view('home',compact('user','details','orders','registers'));
+            return view('home',compact('user','details','orders','register_details'));
         }
 
     }

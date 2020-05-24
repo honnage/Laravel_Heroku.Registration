@@ -178,7 +178,7 @@ class RegisterController extends Controller
                     "status" => $status ,
                 );
                 // dd($item->item_name);
-                $create_orderitem = DB::table('registers')->insert($newRegisters);
+                $create_orderitem = DB::table('register_details')->insert($newRegisters);
             }
             session::forget("cart");
 
