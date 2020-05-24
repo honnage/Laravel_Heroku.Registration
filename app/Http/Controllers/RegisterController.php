@@ -17,7 +17,7 @@ use App\OrderModel;
 class RegisterController extends Controller
 {
     public function create(){
-        $subject = SubjectModel::get();
+        $subject = SubjectModel::orderBy('code', 'asc')->get();
         $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
         if($cart){ //มีข้อมูล
             return view('register.create',['cartItems'=>$cart],compact('subject'));
