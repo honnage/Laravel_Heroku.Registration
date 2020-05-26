@@ -26,8 +26,17 @@
                                     <td><center><label style="color: red">{{$data->status}}</label><center></td>
                                     <td>
                                         <center>
-                                            <a href="/order/details/{{$data->order_id}} " class="btn btn-primary">รายละเอียด</a>
-                                            <a href=" " class="btn btn-success">แจ้งชำระเงิน</a>
+                                            <form action="" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <a href="/order/details/{{$data->order_id}}" class="btn btn-primary col-sm-3">รายละเอียด</a>
+                                                <a href="/order/paymentNotification/{{$data->order_id}}" class="btn btn-success col-sm-3">แจ้งชำระเงิน</a>
+                                                @if($data->status == "Not Paid")
+                                                    <a href=" " class="btn btn-danger col-sm-3">ยกเลิก</a>
+                                                @else
+                                                    <a href=" " class="btn btn-warning col-sm-3">ยกเลิก</a>
+                                                @endif
+                                            </form>
                                         </center>
                                     </td>
                                 </tr>

@@ -42,9 +42,14 @@
                         <a href="/register/create" class="btn btn-success col-sm-2">ลงทะเบียนวิชา</a>
                     @endif
 
-                    @if( sizeof($orders) != 0  )
-
+                    {{-- @if( sizeof($orders) != 0  ) --}}
+                    @if(isset($cartItems))
+                        {{-- มีข้อมูล --}}
+                        {{-- <a href="/order/show/" class="btn btn-outline-light col-sm-2 col-xs-6" style="background-color: #F39C12">รายการลงทะเบียน</a> --}}
+                    @else
+                        {{-- ไม่มีช้อมูล --}}
                         <a href="/order/show/{{Auth::user()->id}}" class="btn btn-outline-light col-sm-2 col-xs-6" style="background-color: #F39C12">รายการลงทะเบียน</a>
+
                     @endif
 
             </div>

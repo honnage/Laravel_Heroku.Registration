@@ -11,7 +11,8 @@ use App\DetailModel;
 
 class OrdersController extends Controller
 {
-    public function show($id){
+    public function show(){
+        $id = Auth::user()->id;
         $details = DB::table('details')
         ->where('details.user_id','=',$id)
         ->get();
@@ -25,7 +26,7 @@ class OrdersController extends Controller
         if($cart){ //มีข้อมูล
             return redirect('home',['cartItems'=>$cart],compact('orders','details','subject'));
         } elseif($orders){
-            return view('orders.show',compact('orders','details'));
+            return view('orders.show',compact('orders','details','subject'));
         }else{
             return redirect('home');
         }
@@ -49,5 +50,14 @@ class OrdersController extends Controller
         } else {
             return view('orders.detail',compact('orders','orderitems'));
         }
+    }
+
+    public function paymentNotification($id){
+        $orderitems = DB::table('orderitems')
+        ->join('subjects','subjects.code','=','orderitems.item_code')
+        ->where('orderitems.order_id','=',$id)
+        ->get();
+        return view('orders.paymentNotification',compact('orderitems'));
+
     }
 }
