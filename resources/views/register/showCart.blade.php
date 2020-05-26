@@ -53,10 +53,10 @@
                             <td class="cart_quantity">
                                 <center>
                                 <div class="cart_quantity_button">
-                                    <strong><a href="/registers/decrementCart/{{$item['data']['id']}}"><img src="{{ asset('images/minus.png') }}" width="25" height="25"></a></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {{-- <strong><a href="/registers/decrementCart/{{$item['data']['id']}}"><img src="{{ asset('images/minus.png') }}" width="25" height="25"></a></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --}}
                                     {{-- <input class="cart_quantity_input" type="text" name="quantity" value="{{ $item['quantity'] }}" autocomplete="off" size="2">&nbsp; --}}
                                     {{ $item['quantity'] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <strong><a  href="/registers/incrementCart/{{$item['data']['id']}}"><img src="{{ asset('images/plus.png') }}" width="25" height="25"></a></strong>&nbsp;
+                                    {{-- <strong><a  href="/registers/incrementCart/{{$item['data']['id']}}"><img src="{{ asset('images/plus.png') }}" width="25" height="25"></a></strong>&nbsp; --}}
                                 </div>
                                 </center>
                             </td>

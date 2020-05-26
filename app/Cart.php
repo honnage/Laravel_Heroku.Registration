@@ -22,20 +22,20 @@
             $price = (int)($subjects->price);
             if(array_key_exists($id, $this->items)){ //เซ็ต ไอดี ตรงกันหรือเปล่า
                 //แบบเก่า
-                $subjectToAdd = $this->items[$id];
-                $subjectToAdd['quantity']++; //เพื่มจำนวนในรายการสินค้า ที่ซ้ำกัน ในรายการนั้นๆ
-                $subjectToAdd['totalSingle'] = $subjectToAdd['quantity'] * $price; //คำนวนราคา จากจำนวนสินค้า * ราคา
+                // $subjectToAdd = $this->items[$id];
+                // $subjectToAdd['quantity']++; //เพื่มจำนวนในรายการสินค้า ที่ซ้ำกัน ในรายการนั้นๆ
+                // $subjectToAdd['totalSingle'] = $subjectToAdd['quantity'] * $price; //คำนวนราคา จากจำนวนสินค้า * ราคา
             } else {
                 $subjectToAdd = ['quantity'=>1, 'totalSingle'=>$price, 'data'=>$subjects];
                 //เพื่มขึ้นมา
-                // $this->items[$id] = $subjectToAdd;
-                // $this->totalQuantity++;
-                // $this->totalPrice = $this->totalPrice + $price;
+                $this->items[$id] = $subjectToAdd;
+                $this->totalQuantity++;
+                $this->totalPrice = $this->totalPrice + $price;
             }
             //แบบเก่า
-            $this->items[$id] = $subjectToAdd;
-            $this->totalQuantity++;
-            $this->totalPrice = $this->totalPrice + $price;
+            // $this->items[$id] = $subjectToAdd;
+            // $this->totalQuantity++;
+            // $this->totalPrice = $this->totalPrice + $price;
         }
 
         public function updatePriceQuantity(){

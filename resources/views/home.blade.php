@@ -28,23 +28,23 @@
                     @endif
 
                     @if(Auth::user()->checkIsAdmin() || Auth::user()->id == "1")
-                        <a href="/subjects/create" class="btn btn-primary">Management</a>
+                        <a href="/subjects/create" class="btn btn-primary col-sm-2">Management</a>
                     @endif
 
 
                     @if( sizeof($details) == 1  )
-                        <a href="/details/edit/{{Auth::user()->id}}" class="btn btn-warning">แก้ไขข้อมูลส่วนตัว</a>
+                        <a href="/details/edit/{{Auth::user()->id}}" class="btn btn-warning col-sm-2">แก้ไขข้อมูลส่วนตัว</a>
                     @else
-                        <a href="/details/create" class="btn btn-primary">เพื่มข้อมูลส่วนตัว</a>
+                        <a href="/details/create" class="btn btn-primary col-sm-2">เพื่มข้อมูลส่วนตัว</a>
                     @endif
 
                     @if( sizeof($details) == 1  )
-                        <a href="/register/create" class="btn btn-success">ลงทะเบียนวิชา</a>
+                        <a href="/register/create" class="btn btn-success col-sm-2">ลงทะเบียนวิชา</a>
                     @endif
 
                     @if( sizeof($orders) != 0  )
 
-                        <a href="/order/show/{{Auth::user()->id}}" class="btn btn-outline-light" style="background-color: #F39C12">รายการลงทะเบียน</a>
+                        <a href="/order/show/{{Auth::user()->id}}" class="btn btn-outline-light col-sm-2 col-xs-6" style="background-color: #F39C12">รายการลงทะเบียน</a>
                     @endif
 
             </div>
