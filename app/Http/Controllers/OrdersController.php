@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use DB;
+use Illuminate\Support\Facades\DB;
 use App\SubjectModel;
 use App\DetailModel;
+use App\OrderModel;
 
 class OrdersController extends Controller
 {
@@ -34,7 +35,7 @@ class OrdersController extends Controller
 
     public function details($id){
         $orders = DB::table('orders')
-        ->where('orders.order_id','=',$id)
+        ->where('orders.id','=',$id)
         ->get();
 
         $orderitems = DB::table('orderitems')
@@ -53,11 +54,31 @@ class OrdersController extends Controller
     }
 
     public function paymentNotification($id){
-        $orderitems = DB::table('orderitems')
-        ->join('subjects','subjects.code','=','orderitems.item_code')
-        ->where('orderitems.order_id','=',$id)
+        // $orders = DB::table('orders')
+        // // ->join('orderitems','orderitems.order_id','=','orders.order_id')
+        // // ->join('subjects','subjects.code','=','orderitems.item_code')
+        // ->where('orders.order_id','=',$id)
+        // ->select('*','orders.order_id as OrdID')
+        // ->get();
+        // return view('orders.paymentNotification',compact('orders'));
+
+        // $orders = DB::table('orders')
+        // // ->join('subjects','subjects.code','=','orderitems.item_code')
+        // ->where('orders.order_id','=',$id)
+        // ->get();
+
+        // // dd($orders);
+        // return view('orders.paymentNotification',compact('orders'));
+
+;
+
+        $orders = DB::table('orders')
+        ->where('orders.user_id','=',$id)
         ->get();
-        return view('orders.paymentNotification',compact('orderitems'));
+
+
+
+        return view('orders.paymentNotification',compact('orders'));
 
     }
 }

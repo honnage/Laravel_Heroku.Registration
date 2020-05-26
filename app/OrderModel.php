@@ -8,7 +8,7 @@ class OrderModel extends Model
 {
     protected $table="orders";
     protected $fillable = [
-        'order_id',
+        // 'order_id',
         'date',
         'price',
         'status',

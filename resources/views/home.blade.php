@@ -43,10 +43,10 @@
                     @endif
 
                     {{-- @if( sizeof($orders) != 0  ) --}}
-                    @if(isset($cartItems))
+                    @if(isset($cartItems) )
                         {{-- มีข้อมูล --}}
                         {{-- <a href="/order/show/" class="btn btn-outline-light col-sm-2 col-xs-6" style="background-color: #F39C12">รายการลงทะเบียน</a> --}}
-                    @else
+                    @elseif(sizeof($orders) != 0 )
                         {{-- ไม่มีช้อมูล --}}
                         <a href="/order/show/{{Auth::user()->id}}" class="btn btn-outline-light col-sm-2 col-xs-6" style="background-color: #F39C12">รายการลงทะเบียน</a>
 

@@ -12,6 +12,7 @@
                             <thead>
                             <tr>
                                 <th scope="col"><center>วัน-เวลา ลงทะเบียน</center></th>
+                                <th scope="col"><center>รหัสรายการ</center></th>
                                 <th scope="col"><center>ราคา</center></th>
                                 <th scope="col"><center>สถานะ</center></th>
                                 <th scope="col"><center>ตัวดำเนิดการ</center></th>
@@ -22,6 +23,7 @@
                                 @foreach($orders as $data)
                                 <tr>
                                     <th scope="row">{{$data->date}}</th>
+                                    <th scope="row">{{$data->id}}</th>
                                     <td>{{number_format($data->price)}}</td>
                                     <td><center><label style="color: red">{{$data->status}}</label><center></td>
                                     <td>
@@ -29,8 +31,8 @@
                                             <form action="" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a href="/order/details/{{$data->order_id}}" class="btn btn-primary col-sm-3">รายละเอียด</a>
-                                                <a href="/order/paymentNotification/{{$data->order_id}}" class="btn btn-success col-sm-3">แจ้งชำระเงิน</a>
+                                                <a href="/order/details/{{$data->id}}" class="btn btn-primary col-sm-3">รายละเอียด</a>
+                                                <a href="/order/paymentNotification/{{$data->id}}" class="btn btn-success col-sm-3">แจ้งชำระเงิน</a>
                                                 @if($data->status == "Not Paid")
                                                     <a href=" " class="btn btn-danger col-sm-3">ยกเลิก</a>
                                                 @else
