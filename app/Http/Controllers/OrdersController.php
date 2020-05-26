@@ -23,7 +23,7 @@ class OrdersController extends Controller
         $subject = SubjectModel::get();
         $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
         if($cart){ //มีข้อมูล
-            return redirect('home',['cartItems'=>$cart],compact('orders','details'));
+            return redirect('home',['cartItems'=>$cart],compact('orders','details','subject'));
         } elseif($orders){
             return view('orders.show',compact('orders','details'));
         }else{
