@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -42,8 +42,8 @@
                         <a href="/register/create" class="btn btn-success">ลงทะเบียนวิชา</a>
                     @endif
 
-                    {{-- @if( sizeof($orders) != 0  ) --}}
-                    @if($orders->user_id == Auth::user()->id )
+                    @if( sizeof($orders) != 0  )
+
                         <a href="/order/show/{{Auth::user()->id}}" class="btn btn-outline-light" style="background-color: #F39C12">รายการลงทะเบียน</a>
                     @endif
 

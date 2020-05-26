@@ -21,10 +21,8 @@
                                 @foreach($orderitems as $data)
                                 <tr>
                                     <th scope="row">{{$data->item_code}}</th>
-                                    <th></th>
-                                    <th></th>
-                                    {{-- <th scope="row">{{$data->item_code}}</th>
-                                    <th scope="row">{{$data->item_code}}</th> --}}
+                                    <th scope="row">{{$data->nameTH}}</th>
+                                    <th scope="row">{{$data->nameEN}}</th>
                                     <td>{{number_format($data->item_price)}}</td>
                                     {{-- <td><center><label style="color: red">{{$data->status}}</label><center></td> --}}
 

@@ -37,8 +37,10 @@ class OrdersController extends Controller
         ->get();
 
         $orderitems = DB::table('orderitems')
+        ->join('subjects','subjects.code','=','orderitems.item_code')
         ->where('orderitems.order_id','=',$id)
         ->get();
+
 
         $subject = SubjectModel::get();
         $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
