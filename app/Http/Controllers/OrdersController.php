@@ -56,31 +56,16 @@ class OrdersController extends Controller
 
     public function paymentNotification($id){
         // $orders = DB::table('orders')
-        // // ->join('orderitems','orderitems.order_id','=','orders.order_id')
         // // ->join('subjects','subjects.code','=','orderitems.item_code')
         // ->where('orders.order_id','=',$id)
-        // ->select('*','orders.order_id as OrdID')
         // ->get();
-        // return view('orders.paymentNotification',compact('orders'));
 
         // $orders = DB::table('orders')
-        // // ->join('subjects','subjects.code','=','orderitems.item_code')
-        // ->where('orders.order_id','=',$id)
+        // ->where('orders.id','=',$id)
         // ->get();
-
-        // // dd($orders);
-        // return view('orders.paymentNotification',compact('orders'));
-
-;
-
-        $orders = DB::table('orders')
-        ->where('orders.id','=',$id)
-        ->get();
         $data = OrderModel::find($id);
 
-
-
-        return view('orders.paymentNotification',compact('orders','data'));
+        return view('orders.paymentNotification',compact('data'));
 
     }
 }

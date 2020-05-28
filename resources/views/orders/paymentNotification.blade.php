@@ -15,42 +15,40 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header" style="background-color:#494B4B; color: white"><strong> ข้อมูลทำรายการ </strong></div>
-                <form action=" " method="post" >
+                <form action=" " method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-inline">
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                            <nav class="col-sm-2">เลขบัตรประชาชน</nav>{{$data->id}}
-                            {{-- <input type="text" class="form-control col-sm-4" name="code_id" id="code_id" value="{{$orders->id}}" readonly> --}}
-
-                            <nav class="col-sm-2">Username</nav>
-                            {{-- <input type="text" class="form-control col-sm-4" name="Lastname_TH" id="Lastname_TH" placeholder="เช่น: Admin"  value="{{$users->username}}" readonly> --}}
                         </div>
 
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                            <nav class="col-sm-2">Firstname</nav>
-                            {{-- <input type="text" class="form-control col-sm-4" name="Firstname_TH" id="Firstname_TH" placeholder="เช่น: Test"  value="{{$details->Firstname_TH}}" readonly> --}}
+                            <nav class="col-sm-2">รหัสรายการ</nav>
+                            <input type="text" class="form-control col-sm-4" value="{{$data->id}}" readonly>
 
-                            <nav class="col-sm-2">Lastname</nav>
-                            {{-- <input type="text" class="form-control col-sm-4" name="Lastname_TH" id="Lastname_TH" placeholder="เช่น: Admin"  value="{{$details->Lastname_TH}}" readonly> --}}
+                            <nav class="col-sm-2">วันที่ลงทะเบียน</nav>
+                            <input type="text" class="form-control col-sm-4" value="{{$data->created_at}}" readonly>
                         </div>
 
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                            <nav class="col-sm-2">ชื่อ</nav>
-                            {{-- <input type="text" class="form-control col-sm-4" name="Firstname_EN" id="Firstname_EN" placeholder="เช่น: ทดสอบ"  value="{{$details->Firstname_EN}}" readonly> --}}
+                            <nav class="col-sm-2">ยอดเงิน</nav>
+                            <input type="text" class="form-control col-sm-4" name="price" id="price"  value="{{$data->price}}" readonly>
 
-                            <nav class="col-sm-2">นามสกุล</nav>
-                            {{-- <input type="text" class="form-control col-sm-4" name="Lastname_EN" id="Lastname_EN" placeholder="เช่น: แอดมิน"  value="{{$details->Lastname_EN}}" readonly> --}}
+                            <nav class="col-sm-2">สถานะ</nav>
+                            <input type="text" class="form-control col-sm-4" name="status" id="status"   value="{{$data->status}}" readonly>
                         </div>
-
 
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                            <nav class="col-sm-2">เบอร์โทรศัพท์</nav>
-                            {{-- <input type="text" class="form-control col-sm-4" name="phone" id="phone" placeholder="เช่น: 0902480000" value="{{$details->phone}}" readonly> --}}
-
-                            <nav class="col-sm-2">Email</nav>
-                            {{-- <input type="text" class="form-control col-sm-4" name="phone" id="phone" placeholder="เช่น: 0902480000" value="{{$users->email}}" readonly> --}}
-
+                            <nav for="image" class="col-sm-2">อัพโหลดรูป <color style="color:red">*</color></nav>
+                            <input type="file" class="form-control col-sm-10"  name="image" id="image" >
                         </div>
+
+                        <div class="form-group col-xs-12 col-sm-12 col-md-12 my-3">
+                            <a class="btn btn-primary check_out col-sm-1" href="/home">ย้อนกลับ</a>
+                            <a class="col-sm-9" type="reset"></a>
+                            <button class="btn btn-secondary col-sm-1" type="reset">ยกเลิก</button>
+                            <a class="btn btn-success update col-sm-1" href="/registers/checkout/{{Auth::user()->id}}">ยืนยัน</a>
+                        </div>
+
 
 
                     </div>

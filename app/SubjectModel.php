@@ -14,4 +14,8 @@ class SubjectModel extends Model
         'price',
 
     ];
+
+    // public function orderitems(){
+    //     return $this->hasMany('App\OrderItemModel','item_id');
+    // }
 }

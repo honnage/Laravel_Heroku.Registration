@@ -6,20 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderItemModel extends Model
 {
-    protected $table="orders";
+    protected $table="orderitems";
     protected $fillable = [
-        // 'order_id',
-        'date',
-        'price',
-        'status',
-        'Firstname_TH',
-        'Lastname_TH',
-        'Firstname_EN',
-        'Lastname_EN',
-        'address',
-        'phone',
-        'email',
-        'user_id',
-
+        'item_id',
+        'item_code',
+        'item_price',
+        'item_amoun',
     ];
+
+    // public function subjects(){
+    //     return $this->belongsTo(SubjectModel::class);
+    // }
+
+    // public function OrderModel(){
+    //     return $this->hasMany('App\OrderModel','order_id');
+    // }
 }
