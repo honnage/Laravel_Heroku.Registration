@@ -116,7 +116,7 @@ class RegisterController extends Controller
             $order = new OrderModel();
             $order->date = $date;
             $order->price = $cart->totalPrice;
-            $order->status = "Not Paid";
+            $order->status = 0;
             $order->image = "";
             $order->user_id = Auth::user()->id;
             $order->save();

@@ -80,7 +80,7 @@ class OrdersController extends Controller
 
         //insert
         $orders->image = $imageName;
-        $orders->status =  "Paid";
+        $orders->status =  1;
         // dd($imageName);
         $orders->update();
         return redirect('home');

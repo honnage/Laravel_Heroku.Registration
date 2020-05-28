@@ -27,8 +27,10 @@
                                     <td>{{number_format($data->price)}}</td>
                                     <td>
                                         <center>
-                                        @if($data->status == "Not Paid")
+                                        @if($data->status == "Not Paid" || $data->status == 0)
                                             <label style="color: red">{{$data->status}}</label>
+                                        @elseif($data->status == 1)
+                                            <label style="color: rgba(236, 198, 30, 0.753)">{{$data->status}}</label>
                                         @else
                                             <label style="color: rgba(4, 102, 20, 0.753)">{{$data->status}}</label>
                                         @endif
@@ -41,10 +43,12 @@
                                                 @method('DELETE')
                                                 <a href="/order/details/{{$data->id}}" class="btn btn-primary col-sm-3">รายละเอียด</a>
                                                 <a href="/order/paymentNotification/{{$data->id}}" class="btn btn-success col-sm-3">แจ้งชำระเงิน</a>
-                                                @if($data->status == "Not Paid")
+                                                @if($data->status == "Not Paid" || $data->status == 0)
                                                     <a href=" " class="btn btn-danger col-sm-3">ยกเลิก</a>
-                                                @else
+                                                @elseif($data->status == 1)
                                                     <a href=" " class="btn btn-warning col-sm-3">ยกเลิก</a>
+                                                @else
+                                                    <a href=" " class="btn btn-success col-sm-3">ยกเลิก</a>
                                                 @endif
                                             </form>
                                         </center>
