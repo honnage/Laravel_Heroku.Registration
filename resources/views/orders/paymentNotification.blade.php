@@ -19,8 +19,8 @@
                     {{csrf_field()}}
                     <div class="form-inline">
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                            <nav class="col-sm-2">เลขบัตรประชาชน</nav>
-                            <input type="text" class="form-control col-sm-4" name="code_id" id="code_id" value="{{$orders->id}}" readonly>
+                            <nav class="col-sm-2">เลขบัตรประชาชน</nav>{{$data->id}}
+                            {{-- <input type="text" class="form-control col-sm-4" name="code_id" id="code_id" value="{{$orders->id}}" readonly> --}}
 
                             <nav class="col-sm-2">Username</nav>
                             {{-- <input type="text" class="form-control col-sm-4" name="Lastname_TH" id="Lastname_TH" placeholder="เช่น: Admin"  value="{{$users->username}}" readonly> --}}

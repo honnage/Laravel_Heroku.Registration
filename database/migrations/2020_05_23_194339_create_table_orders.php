@@ -18,13 +18,7 @@ class CreateTableOrders extends Migration
             $table->dateTime('date');//วันชำระเงิน
             $table->decimal('price',10,2); //ยอดเงิน
             $table->text('status'); //สถานะการสั่งซื้อ
-            $table->string('Firstname_TH');
-            $table->string('Lastname_TH');
-            $table->string('Firstname_EN');
-            $table->string('Lastname_EN');
-            $table->text('address');
-            $table->text('phone');
-            $table->text('email');
+            $table->string('image');
             $table->integer('user_id');
             $table->timestamps();
         });

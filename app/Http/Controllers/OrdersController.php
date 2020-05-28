@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\SubjectModel;
 use App\DetailModel;
 use App\OrderModel;
+use App\OderItemModel;
 
 class OrdersController extends Controller
 {
@@ -73,12 +74,13 @@ class OrdersController extends Controller
 ;
 
         $orders = DB::table('orders')
-        ->where('orders.user_id','=',$id)
+        ->where('orders.id','=',$id)
         ->get();
+        $data = OrderModel::find($id);
 
 
 
-        return view('orders.paymentNotification',compact('orders'));
+        return view('orders.paymentNotification',compact('orders','data'));
 
     }
 }
