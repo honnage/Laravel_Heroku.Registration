@@ -15,7 +15,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header" style="background-color:#494B4B; color: white"><strong> ข้อมูลทำรายการ </strong></div>
-                <form action=" " method="post" enctype="multipart/form-data">
+                <form action="/order/update/{{$data->id}}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-inline">
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
@@ -46,7 +46,8 @@
                             <a class="btn btn-primary check_out col-sm-1" href="/home">ย้อนกลับ</a>
                             <a class="col-sm-9" type="reset"></a>
                             <button class="btn btn-secondary col-sm-1" type="reset">ยกเลิก</button>
-                            <a class="btn btn-success update col-sm-1" href="/registers/checkout/{{Auth::user()->id}}">ยืนยัน</a>
+                            {{-- <a class="btn btn-success update col-sm-1" href="/registers/checkout/{{Auth::user()->id}}">ยืนยัน</a> --}}
+                            <button type="submit" name="submit" class="btn btn-success col-sm-1">ยืนยัน</button>
                         </div>
 
 

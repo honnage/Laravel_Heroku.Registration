@@ -20,7 +20,6 @@ Route::middleware(['auth','IsStatus'])->group(function(){
     Route::get('UserDetails','UserDetailController@index');
     Route::get('UserDetails/editStatus/{id}','UserDetailController@editStatus');
     Route::post('UserDetails/update/{id}','UserDetailController@update');
-
 });
 
 Route::middleware(['auth'])->group(function(){ //ต้องlogin ก่อน
@@ -42,16 +41,9 @@ Route::middleware(['auth'])->group(function(){ //ต้องlogin ก่อน
     Route::get('order/show/{id}','OrdersController@show');
     Route::get('order/details/{id}','OrdersController@details');
     Route::get('order/paymentNotification/{id}','OrdersController@paymentNotification');
-
+    Route::post('order/update/{id}','OrdersController@update');
 
     // Route::resource('order', 'OrdersController');
-
-
-
-
-
-
-
 });
 
 Route::get('public/subjects','PublicController@Public');
