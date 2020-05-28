@@ -25,7 +25,15 @@
                                     <th scope="row">{{$data->date}}</th>
                                     <th scope="row">{{$data->id}}</th>
                                     <td>{{number_format($data->price)}}</td>
-                                    <td><center><label style="color: red">{{$data->status}}</label><center></td>
+                                    <td>
+                                        <center>
+                                        @if($data->status == "Not Paid")
+                                            <label style="color: red">{{$data->status}}</label>
+                                        @else
+                                            <label style="color: rgba(4, 102, 20, 0.753)">{{$data->status}}</label>
+                                        @endif
+                                        <center>
+                                    </td>
                                     <td>
                                         <center>
                                             <form action="" method="POST">

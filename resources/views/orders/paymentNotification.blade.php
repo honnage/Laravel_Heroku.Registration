@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                            <nav for="image" class="col-sm-2">อัพโหลดรูป <color style="color:red">*</color></nav>
+                            <nav for="image" class="col-sm-2">อัพโหลดรูป</nav>
                             <input type="file" class="form-control col-sm-10"  name="image" id="image" >
                         </div>
 

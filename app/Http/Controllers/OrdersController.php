@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\file;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Resource;
+use Illuminate\Support\Facades\Finder;
 use App\SubjectModel;
 use App\DetailModel;
 use App\OrderModel;
@@ -71,7 +73,7 @@ class OrdersController extends Controller
         $stringImageReFormat=base64_encode('_'.time()); //เปลี่ยนชื่อภาพใหม่แล้วเข้ารหัส เป็น เวลา
         $ext = $request->file('image')->getClientOriginalExtension(); //แสดงนามสุลกไฟล์
         $imageName = $stringImageReFormat.".".$ext; //ชื่อรูปภาพใหม่ที่เข้ารหัส.นามสกุลไฟล์รูป
-        $imageEncoded = file::get($request->image); //เอาภาพไปเก็บในตัวแปล iamgeEncoded
+        $imageEncoded = File::get($request->image); //เอาภาพไปเก็บในตัวแปล iamgeEncoded
 
         //upload & insert
         Storage::disk('local')->put('public/product_image/'.$imageName,$imageEncoded);//เก็บที่ตำแหน่งปลายทาง
