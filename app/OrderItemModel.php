@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class OrderModel extends Model
+class OrderItemModel extends Model
 {
     protected $table="orders";
     protected $fillable = [
@@ -12,7 +12,13 @@ class OrderModel extends Model
         'date',
         'price',
         'status',
-        'image',
+        'Firstname_TH',
+        'Lastname_TH',
+        'Firstname_EN',
+        'Lastname_EN',
+        'address',
+        'phone',
+        'email',
         'user_id',
 
     ];
