@@ -11,11 +11,6 @@
                 <div class="card-body">
                     <div class="form-inline">
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                            <nav class="col-sm-2">เลขบัตรประชาชน</nav>
-                            <input type="text" class="form-control col-sm-10" value="{{$order->code_id}}" readonly>
-                        </div>
-
-                        <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
                             <nav class="col-sm-2">Firstname</nav>
                             <input type="text" class="form-control col-sm-4"  value="{{$order->Firstname_TH}}" readonly>
 
