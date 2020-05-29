@@ -49,7 +49,6 @@
 
                             <nav class="col-sm-2">Email</nav>
                             <input type="text" class="form-control col-sm-4" name="phone" id="phone" placeholder="เช่น: 0902480000" value="{{$users->email}}" readonly>
-
                         </div>
 
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">

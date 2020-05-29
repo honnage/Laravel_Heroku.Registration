@@ -21,4 +21,8 @@ class DetailModel extends Model
         'address',
     ];
 
+    // public function order(){
+    //     return $this->hasMany(OrderModel::class);
+    // }
+
 }

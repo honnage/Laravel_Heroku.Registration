@@ -6,7 +6,7 @@
     <div class="data justify-content-center">
         <div class="col-md-12">
             <div class="card my-2">
-                <div class="card-header" style="background-color:#494B4B; color: white"><strong> รายการใบลงทะเบยน </strong></div>
+                <div class="card-header" style="background-color:#494B4B; color: white"><strong> วิชาที่ลงทะเบียน </strong></div>
                     {{-- <div class="card-body"> --}}
                         <table class="table table-striped">
                             <thead>
@@ -24,8 +24,6 @@
                                     <th scope="row">{{$data->nameTH}}</th>
                                     <th scope="row">{{$data->nameEN}}</th>
                                     <td>{{number_format($data->item_price)}}</td>
-                                    {{-- <td><center><label style="color: red">{{$data->status}}</label><center></td> --}}
-
                                 </tr>
                                 @endforeach
                             </tbody>

@@ -114,6 +114,12 @@ class RegisterController extends Controller
             //เพื่มแบบ model
             $date=date("Y-m-d H:i:s");
             $order = new OrderModel();
+            // $order->Firstname_TH = $details->Firstname_TH;
+            // $order->Lastname_TH = $details->Lastname_TH;
+            // $order->Firstname_EN = $details->Firstname_EN;
+            // $order->Lastname_EN = $details->Lastname_EN;
+            // $order->phone = $details->phone;
+            // $order->email = $users->email;
             $order->date = $date;
             $order->price = $cart->totalPrice;
             $order->status = 0;
@@ -123,7 +129,14 @@ class RegisterController extends Controller
 
             //เพื่มแบบ DB
             // DB::table('orders')
-            // ->insert([
+            // // ->insert([
+            // // 'Firstname_TH' => $details->Firstname_TH,
+            // // 'Lastname_TH' => $details->Lastname_TH,
+            // // 'Firstname_EN' => $details->Firstname_EN,
+            // // 'Lastname_EN' => $details->Lastname_EN,
+            // // 'phone' => $details->phone,
+            // // 'email' => $users->email,
+
             // 'date' => $date,
             // 'price' => $cart->totalPrice,
             // 'status' => "Not Paid",

@@ -8,7 +8,12 @@ class OrderModel extends Model
 {
     protected $table="orders";
     protected $fillable = [
-        // 'order_id',
+        // 'Firstname_TH',
+        // 'Lastname_TH',
+        // 'Firstname_EN',
+        // 'Lastname_EN',
+        // 'email',
+        // 'phone',
         'date',
         'price',
         'status',
@@ -16,7 +21,7 @@ class OrderModel extends Model
         'user_id',
 
     ];
-    // public function orderitems(){
-    //     return $this->belongsTo(OrderItemModel::class);
+    // public function detail(){
+    //     return $this->belongsTo(DetailModel::class);
     // }
 }

@@ -78,7 +78,7 @@ class SubjectController extends Controller
     public function edit($id)
     {
         $data = SubjectModel::get();
-        $subject = SubjectModel::find($id);
+        $order = SubjectModel::find($id);
 
         return view('subjects.edit', compact('subject','data'));
     }

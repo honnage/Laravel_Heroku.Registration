@@ -38,7 +38,7 @@
         <a href="/admin/createCategory" class="list-group-item list-group-item-action bg-light">Category</a>
         <a href="/admin/orders" class="list-group-item list-group-item-action bg-light">Order</a> --}}
         <a href="/subjects/create" class="list-group-item list-group-item-action bg-light">วิชาจัดสอบ</a>
-        {{-- <a href="/admin/users" class="list-group-item list-group-item-action bg-light">กำหนดสิทธิ์</a> --}}
+        <a href="/orders/dashboard" class="list-group-item list-group-item-action bg-light">รายการออเดอร์</a>
         <a href="/UserDetails/" class="list-group-item list-group-item-action bg-light">ข้อมูลผู้ใช้</a>
     </div>
     </div>
