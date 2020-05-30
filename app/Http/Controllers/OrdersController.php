@@ -65,6 +65,13 @@ class OrdersController extends Controller{
     }
 
     public function details($id){
+        $orders = DB::table('orders')
+        ->join('details','details.id','=','orders.user_id')
+        ->join('users','users.id','=','orders.user_id')
+        ->select('*','orders.id as OrID','orders.status as OrStatus','details.status as deStatus')
+        ->where('orders.id','=',$id)
+        ->get();
+
         $orderitems = DB::table('orderitems')
         ->join('subjects','subjects.code','=','orderitems.item_code')
         ->where('orderitems.order_id','=',$id)
@@ -74,9 +81,9 @@ class OrdersController extends Controller{
         $subject = SubjectModel::get();
         $cart = Session::get('cart'); //ดึงข้อมูลตะกร้าสินค้า
         if($cart){ //มีข้อมูล
-            return view('home',['cartItems'=>$cart],compact('orderitems'));
+            return view('home',['cartItems'=>$cart],compact('orderitems','orders'));
         } else {
-            return view('orders.detail',compact('orderitems'));
+            return view('orders.detail',compact('orderitems','orders'));
         }
     }
 
