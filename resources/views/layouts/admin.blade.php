@@ -24,21 +24,18 @@
     </a>
     <nav class="my-2 my-md-0 mr-md-3  bg-dark ">
       <a class="p-2 text-light" href="/">หน้าหลัก</a>
-      <a class="p-2 text-light" href="#">Dashboard</a>
+      <a class="p-2 text-light" href="/orders/dashboard">Dashboard</a>
       <a class="p-2 text-light" href="/home">Profile</a>
-      <a class="p-2 text-light" href="#">Help</a>
+      {{-- <a class="p-2 text-light" href="#">Help</a> --}}
     </nav>
   </div>
   <div class="d-flex" id="wrapper">
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Overview</div>
       <div class="list-group list-group-flush">
-        <a href="/admin/Dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        {{-- <a href="/admin/createProduct" class="list-group-item list-group-item-action bg-light">Product</a>
-        <a href="/admin/createCategory" class="list-group-item list-group-item-action bg-light">Category</a>
-        <a href="/admin/orders" class="list-group-item list-group-item-action bg-light">Order</a> --}}
-        <a href="/subjects/create" class="list-group-item list-group-item-action bg-light">วิชาจัดสอบ</a>
+        {{-- <a href="/admin/Dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a> --}}
         <a href="/orders/dashboard" class="list-group-item list-group-item-action bg-light">รายการออเดอร์</a>
+        <a href="/subjects/create" class="list-group-item list-group-item-action bg-light">วิชาจัดสอบ</a>
         <a href="/UserDetails/" class="list-group-item list-group-item-action bg-light">ข้อมูลผู้ใช้</a>
     </div>
     </div>
