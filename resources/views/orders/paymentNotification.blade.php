@@ -38,29 +38,21 @@
                         </div>
 
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                            @if($data->image == "")
-                                <nav for="image" class="col-sm-2">อัพโหลดรูป</nav>
-                                <input type="file" class="form-control col-sm-10"  name="image" id="image" >
-                            @else
-                                <nav for="image" class="col-sm-2">อัพโหลดรูป</nav>
-                                แสดงรูป
-                            @endif
+                            <nav for="image" class="col-sm-2">อัพโหลดรูป</nav>
+                            <input type="file" class="form-control col-sm-10"  name="image" id="image" >
+                            {{-- <nav>
+                                <img src="{{asset('storage')}}/product_image/{{$data->image}}" alt="" width="700px" height="900px">
+                            </nav> --}}
                         </div>
 
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 my-3">
                             <a class="btn btn-primary check_out col-sm-1" href="/home">ย้อนกลับ</a>
-                            <a class="col-sm-9" type="reset"></a>
+                            <a class="col-sm-8" type="reset"></a>
+                            <a class="btn btn-primary check_out col-sm-1" href="/order/showImage/{{$data->id}}">แสดงรป</a>
                             <button class="btn btn-secondary col-sm-1" type="reset">ยกเลิก</button>
-                            {{-- <a class="btn btn-success update col-sm-1" href="/registers/checkout/{{Auth::user()->id}}">ยืนยัน</a> --}}
                             <button type="submit" name="submit" class="btn btn-success col-sm-1">ยืนยัน</button>
                         </div>
-
-
-
                     </div>
-
-
-
                 </form>
             </div>
 

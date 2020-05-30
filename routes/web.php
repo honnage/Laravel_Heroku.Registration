@@ -48,6 +48,7 @@ Route::middleware(['auth'])->group(function(){ //ต้องlogin ก่อน
     Route::get('order/details/{id}','OrdersController@details');
     Route::get('order/paymentNotification/{id}','OrdersController@paymentNotification');
     Route::post('order/update/{id}','OrdersController@update');
+    Route::get('order/showImage/{id}','OrdersController@showImage');
 
     // Route::resource('order', 'OrdersController');
 });

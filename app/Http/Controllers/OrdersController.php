@@ -104,4 +104,9 @@ class OrdersController extends Controller{
         $orders->update();
         return redirect('home');
     }
+
+    public function showImage($id){
+        $data = OrderModel::find($id);
+        return view('orders.showImage',compact('data'));
+    }
 }

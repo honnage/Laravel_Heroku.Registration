@@ -63,11 +63,12 @@
                             </tbody>
                         </table>
                     {{-- </div> --}}
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
+                        <a href="/orders/dashboard"  class="btn btn-primary col-sm-2 my-2">ย้อนกลับ</a>
+                        <a class="col-sm-7" type="reset"></a>
+                        <a class="btn btn-success col-sm-2" href="/order/showImage/{{$data->id}}">แสดงรป</a>
+                    </div>
                 </div>
-            </div>
-
-            <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                <a href="/orders/dashboard"  class="btn btn-primary col-sm-2 my-2">ย้อนกลับ</a>
             </div>
         </div>
     </div>
