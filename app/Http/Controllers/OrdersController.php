@@ -138,4 +138,30 @@ class OrdersController extends Controller{
         $data = OrderModel::find($id);
         return view('orders.showImageAdmin',compact('data'));
     }
+
+    public function updateImage(Request $request, $id){
+        $request->validate([
+            'image' => 'required|file|image|mimes:jpeg,png,jpg|max:5000', //ชนิดข้อมูลเป็นไฟล์ รูปภาพ นามสกุลไฟล์ jpeg,png,jpg ขนาดไม่ 5000ไบต์
+        ]);
+
+        if($request->hasFile("image")){
+            $orders = OrderModel::find($id);
+            $exists = Storage::disk('local')->exists("public/product_image/".$orders->image); //เปลี่ยนภาพ โดยใช้ชื่อเดิม เซ็ดไฟล์ภาพเหมือนกันไหม
+
+            if($exists){ //ถ้าเหมือนกัน ลบภาพทิ้ง
+                Storage::delete("public/product_image/".$orders->image);
+            }
+            $request->image->storeAs("public/product_image/",$orders->image);
+
+            DB::table('orders')
+            ->where('orders.id','=',$id )
+            ->update([
+            'status' => 1,
+            ]);
+
+
+            return redirect('home');
+        }
+
+    }
 }

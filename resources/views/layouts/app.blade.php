@@ -54,6 +54,10 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a href="/home" ><i class="nav-link ">โปรไฟล์</i></a>
+                            </li>
+
                             <li class="nav-item" >
                                 <a href="/registers/cart">
                                     <i class="nav-link ">

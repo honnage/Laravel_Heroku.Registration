@@ -70,7 +70,7 @@
                                     @endif
                                 </div>
                                 @if($order->OrStatus != 0)
-                                    @if( Auth::user()->status == 2)
+                                    @if( Auth::user()->status == 2 || Auth::user()->id == 1)
                                         <button class="btn btn-secondary col-sm-1" type="reset">ยกเลิก</button>
                                         <button type="submit" name="submit" class="btn btn-success col-sm-2">อัพเดท</button>
                                     @endif

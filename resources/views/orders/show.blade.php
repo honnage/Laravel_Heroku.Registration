@@ -43,7 +43,16 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <a href="/order/details/{{$data->id}}" class="btn btn-primary col-sm-4">รายละเอียด</a>
-                                                <a href="/order/paymentNotification/{{$data->id}}" class="btn btn-success col-sm-4">แจ้งชำระเงิน</a>
+                                                @if($data->status == 0)
+                                                    <a href="/order/paymentNotification/{{$data->id}}" class="btn btn-info col-sm-4">แจ้งชำระเงิน</a>
+                                                @elseif($data->status == 2)
+                                                    {{-- <a href="/order/editImage/{{$data->id}}" class="btn btn-warning col-sm-4">แจ้งชำระใหม่</a> --}}
+                                                    <a href="/order/paymentNotification/{{$data->id}}" class="btn btn-warning col-sm-4">ชำระเงินแล้ว</a>
+                                                @elseif($data->status == 3)
+                                                    <a href="/order/paymentNotification/{{$data->id}}" class="btn btn-success col-sm-4">ชำระเงินแล้ว</a>
+                                                @else
+                                                    <a href="/order/paymentNotification/{{$data->id}}" class="btn btn-info col-sm-4">กำลังตรวจสอบ</a>
+                                                @endif
                                             </form>
                                         </center>
                                     </td>
