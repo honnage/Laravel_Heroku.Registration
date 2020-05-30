@@ -63,7 +63,7 @@
                                 <th scope="col"><center>ชื่อภาษาไทย</center></th>
                                 <th scope="col"><center>ชื่อภาษาอังกฤษ</center></th>
                                 <th scope="col"><center>ราคา</center></th>
-                                <th scope="col"><center>จำนวน</center></th>
+                                {{-- <th scope="col"><center>จำนวน</center></th> --}}
                                 <th scope="col"><center>ตัวดำเนิดการ</center></th>
                             </tr>
                             </thead>
@@ -75,7 +75,7 @@
                                     <td>{{$data->nameTH}}</td>
                                     <td>{{$data->nameEN}}</td>
                                     <td>{{number_format($data->price)}}</td>
-                                    <td>    </td>
+                                    {{-- <td></td> --}}
                                     <td>
                                         <center>
                                         <form action="{{ route('subjects.destroy',$data->id)}}" method="POST">
