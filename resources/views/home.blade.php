@@ -19,9 +19,9 @@
 
                     @if( Auth::user()->id == 1)
                         <p><strong>สถานะ : </strong>Admin</p>
-                    @elseif( Auth::user()->StatusID == 2 )
+                    @elseif( Auth::user()->status == 2 )
                         <p><strong>สถานะ : </strong>Admin</p>
-                    @elseif( Auth::user()->StatusID == 1 )
+                    @elseif( Auth::user()->status == 1 )
                         <p><strong>สถานะ : </strong>Moderator</p>
                     @else
                         <p><strong>สถานะ : </strong>User</p>

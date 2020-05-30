@@ -29,6 +29,9 @@
                             </tbody>
                         </table>
                     {{-- </div> --}}
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 my-3">
+                        <a class="btn btn-primary check_out col-sm-1" href="/order/show/{{$data->id}}">ย้อนกลับ</a>
+                    </div>
                 </div>
             </div>
         </div>

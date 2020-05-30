@@ -24,12 +24,15 @@ class OrdersController extends Controller{
     public function dashboardDetail($id){
         $orders = DB::table('orders')
         ->join('details','details.id','=','orders.user_id')
+        ->join('users','users.id','=','orders.user_id')
+        ->select('*','orders.id as OrID','orders.status as OrStatus','details.status as deStatus')
         ->where('orders.id','=',$id)
         ->get();
 
         $orderitems = DB::table('orderitems')
         ->join('subjects','subjects.code','=','orderitems.item_code')
         ->where('orderitems.order_id','=',$id)
+        ->select('*','orderitems.order_id as OrID',)
         ->get();
 
         return view('orders.dashboardDetail',compact('orderitems','orders'));
@@ -105,8 +108,27 @@ class OrdersController extends Controller{
         return redirect('home');
     }
 
+    public function updateStatus(Request $request, $id){
+        $request->validate([
+            'status'=>'required',
+        ]);
+
+        $orders = OrderModel::find($id);
+        $orders->status = $request->status;
+        $orders->save();
+        // dd($request);
+        // SubjectModel::find($id)->update($request->all()); //บันทึกแบบทั้งหมด
+        return redirect('/orders/dashboard');
+    }
+
     public function showImage($id){
         $data = OrderModel::find($id);
+        // dd($id);
         return view('orders.showImage',compact('data'));
+    }
+
+    public function showImageAdmin($id){
+        $data = OrderModel::find($id);
+        return view('orders.showImageAdmin',compact('data'));
     }
 }

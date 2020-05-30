@@ -24,6 +24,8 @@ Route::middleware(['auth','IsStatus'])->group(function(){
     Route::get('orders/dashboard','OrdersController@dashboard');
     Route::get('orders/dashboardDetail/{id}','OrdersController@dashboardDetail');
     Route::get('orders/editPayment/{id}','OrdersController@editPayment');
+    Route::get('order/showImageAdmin/{id}','OrdersController@showImageAdmin');
+
 
 
 });
@@ -49,6 +51,8 @@ Route::middleware(['auth'])->group(function(){ //ต้องlogin ก่อน
     Route::get('order/paymentNotification/{id}','OrdersController@paymentNotification');
     Route::post('order/update/{id}','OrdersController@update');
     Route::get('order/showImage/{id}','OrdersController@showImage');
+    Route::post('order/updateStatus/{id}','OrdersController@updateStatus');
+
 
     // Route::resource('order', 'OrdersController');
 });

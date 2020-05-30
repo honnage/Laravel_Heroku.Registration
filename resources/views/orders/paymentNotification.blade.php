@@ -45,6 +45,11 @@
                             </nav> --}}
                         </div>
 
+                        <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
+                            <nav class="col-sm-2"></nav>
+                            <nav class="col-sm-10" style="color: red">* รูปที่ใช้ต้องเป็น นามสกุล JPG, JPEG, PNG ขนาดไม่ 5000ไบต์</nav>
+                        </div>
+
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 my-3">
                             <a class="btn btn-primary check_out col-sm-1" href="/home">ย้อนกลับ</a>
                             <a class="col-sm-8" type="reset"></a>

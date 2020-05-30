@@ -29,12 +29,14 @@
                                     <td>{{number_format($data->price)}}</td>
                                     <td>
                                         <center>
-                                        @if($data->status == "Not Paid" || $data->status == 0)
-                                            <label style="color: red">{{$data->status}}</label>
+                                        @if($data->status == 0)
+                                            <label>ยังไม่ได้ชำระเงิน</label>
                                         @elseif($data->status == 1)
-                                            <label style="color: rgba(236, 198, 30, 0.753)">{{$data->status}}</label>
+                                            <label>รอตรวจสอบ</label>
+                                        @elseif($data->status == 3)
+                                            <label>ชำระเงินแล้ว</label>
                                         @else
-                                            <label style="color: rgba(4, 102, 20, 0.753)">{{$data->status}}</label>
+                                            <label>แก้ไขใหม่</label>
                                         @endif
                                         <center>
                                     </td>
@@ -43,8 +45,8 @@
                                             <form action="" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a href="/orders/dashboardDetail/{{$data->id}}" class="btn btn-primary col-sm-4">รายละเอียด</a>
-                                                <a href="/orders/editPayment/{{$data->id}}" class="btn btn-success col-sm-4">ชำระเงิน</a>
+                                                <a href="/orders/dashboardDetail/{{$data->id}}" class="btn btn-warning col-sm-4">แก้ไข</a>
+                                                {{-- <a href="/orders/editPayment/{{$data->id}}" class="btn btn-success col-sm-4">ชำระเงิน</a> --}}
                                             </form>
                                         </center>
                                     </td>
