@@ -102,7 +102,7 @@ class OrdersController extends Controller{
         $stringImageReFormat=base64_encode('_'.time()); //เปลี่ยนชื่อภาพใหม่แล้วเข้ารหัส เป็น เวลา
         $ext = $request->file('image')->getClientOriginalExtension(); //แสดงนามสุลกไฟล์
         $imageName = $stringImageReFormat.".".$ext; //ชื่อรูปภาพใหม่ที่เข้ารหัส.นามสกุลไฟล์รูป
-        $imageEncoded = File::get($request->image); //เอาภาพไปเก็บในตัวแปล iamgeEncoded
+        $imageEncoded = file::get($request->image); //เอาภาพไปเก็บในตัวแปล iamgeEncoded
 
         //upload & insert
         Storage::disk('local')->put('public/product_image/'.$imageName,$imageEncoded);//เก็บที่ตำแหน่งปลายทาง
@@ -113,6 +113,7 @@ class OrdersController extends Controller{
         // dd($imageName);
         $orders->update();
         return redirect('home');
+
     }
 
     public function updateStatus(Request $request, $id){
