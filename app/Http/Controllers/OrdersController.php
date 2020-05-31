@@ -7,9 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Resource;
-use Illuminate\Support\Facades\Finder;
+use Illuminate\Support\Facades\file;
 use App\SubjectModel;
 use App\DetailModel;
 use App\OrderModel;
@@ -107,13 +105,12 @@ class OrdersController extends Controller{
         //upload & insert
         Storage::disk('local')->put('public/product_image/'.$imageName,$imageEncoded);//เก็บที่ตำแหน่งปลายทาง
 
+
         //insert
         $orders->image = $imageName;
-        $orders->status =  1;
         // dd($imageName);
         $orders->update();
         return redirect('home');
-
     }
 
     public function updateStatus(Request $request, $id){
